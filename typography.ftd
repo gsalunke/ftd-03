@@ -1,0 +1,345 @@
+-- ftd.type heading-large-desktop:
+size.px: 40
+weight: 400
+font-family: sans-serif
+line-height.px: 48
+letter-spacing.px: 0
+
+-- ftd.type heading-large-mobile:
+size.px: 48
+weight: 400
+font-family: sans-serif
+line-height.px: 48
+letter-spacing.px: 0
+
+-- ftd.responsive-type heading-large:
+desktop: $heading-large-desktop
+mobile: $heading-large-mobile
+
+
+
+
+
+-- ftd.type heading-medium-desktop:
+size.px: 32
+weight: 400
+font-family: sans-serif
+line-height.px: 44
+letter-spacing.px: 0
+
+-- ftd.type heading-medium-mobile:
+size.px: 32
+weight: 400
+font-family: sans-serif
+line-height.px: 44
+letter-spacing.px: 0
+
+-- ftd.responsive-type heading-medium:
+desktop: $heading-medium-desktop
+mobile: $heading-medium-mobile
+
+
+
+
+
+-- ftd.type heading-small-desktop:
+size.px: 24
+weight: 400
+font-family: sans-serif
+line-height.px: 36
+letter-spacing.px: 0
+
+-- ftd.type heading-small-mobile:
+size.px: 24
+weight: 400
+font-family: sans-serif
+line-height.px: 36
+letter-spacing.px: 0
+
+-- ftd.responsive-type heading-small:
+desktop: $heading-small-desktop
+mobile: $heading-small-mobile
+
+
+
+
+
+-- ftd.type heading-hero-desktop:
+size.px: 48
+weight: 400
+font-family: sans-serif
+line-height.px: 60
+letter-spacing.px: 0
+
+-- ftd.type heading-hero-mobile:
+size.px: 48
+weight: 400
+font-family: sans-serif
+line-height.px: 60
+letter-spacing.px: 0
+
+-- ftd.responsive-type heading-hero:
+desktop: $heading-hero-desktop
+mobile: $heading-hero-mobile
+
+
+
+
+
+-- ftd.type copy-tight-desktop:
+size.px: 16
+weight: 400
+font-family: sans-serif
+line-height.px: 20
+letter-spacing.px: 0
+
+-- ftd.type copy-tight-mobile:
+size.px: 16
+weight: 400
+font-family: sans-serif
+line-height.px: 20
+letter-spacing.px: 0
+
+-- ftd.responsive-type copy-tight:
+desktop: $copy-tight-desktop
+mobile: $copy-tight-mobile
+
+
+
+
+
+
+-- ftd.type copy-relaxed-desktop:
+size.px: 16
+weight: 400
+font-family: sans-serif
+line-height.px: 24
+letter-spacing.px: 0
+
+-- ftd.type copy-relaxed-mobile:
+size.px: 16
+weight: 400
+font-family: sans-serif
+line-height.px: 24
+letter-spacing.px: 0
+
+-- ftd.responsive-type copy-relaxed:
+desktop: $copy-relaxed-desktop
+mobile: $copy-relaxed-mobile
+
+
+
+
+
+-- ftd.type copy-large-desktop:
+size.px: 20
+weight: 400
+font-family: sans-serif
+line-height.px: 28
+letter-spacing.px: 0
+
+-- ftd.type copy-large-mobile:
+size.px: 20
+weight: 400
+font-family: sans-serif
+line-height.px: 28
+letter-spacing.px: 0
+
+-- ftd.responsive-type copy-large:
+desktop: $copy-large-desktop
+mobile: $copy-large-mobile
+
+
+
+
+
+-- ftd.type label-big-desktop:
+size.px: 16
+weight: 400
+font-family: sans-serif
+line-height.px: 22
+letter-spacing.px: 0
+
+-- ftd.type label-big-mobile:
+size.px: 16
+weight: 400
+font-family: sans-serif
+line-height.px: 22
+letter-spacing.px: 0
+
+-- ftd.responsive-type label-big:
+desktop: $label-big-desktop
+mobile: $label-big-mobile
+
+
+
+
+
+-- ftd.type label-small-desktop:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.type label-small-mobile:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.responsive-type label-small:
+desktop: $label-small-desktop
+mobile: $label-small-mobile
+
+
+
+
+
+-- ftd.type fine-print-desktop:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.type fine-print-mobile:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.responsive-type fine-print:
+desktop: $fine-print-desktop
+mobile: $fine-print-mobile
+
+
+
+
+
+-- ftd.type blockquote-desktop:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.type blockquote-mobile:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.responsive-type blockquote:
+desktop: $blockquote-desktop
+mobile: $blockquote-mobile
+
+
+
+
+
+-- ftd.type blockquote-desktop:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.type blockquote-mobile:
+size.px: 14
+weight: 400
+font-family: sans-serif
+line-height.px: 16
+letter-spacing.px: 0
+
+-- ftd.responsive-type blockquote:
+desktop: $blockquote-desktop
+mobile: $blockquote-mobile
+
+
+
+
+
+
+-- component h3:
+caption title:
+optional body body:
+
+-- ftd.column:
+width.fixed.percent: 100
+margin-top.px: 32
+margin-bottom.px: 16
+
+-- ftd.text:
+text: $h3.title
+role: $heading-small
+color: $text-strong
+padding-bottom.px: 16
+padding-top.px: 8
+
+-- ftd.column:
+width.fixed.percent: 100
+margin-bottom.px if {$h3.body != NULL}: -26
+
+-- markdown:
+if: { $h3.body != NULL }
+body: $h3.body
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: h3
+
+
+
+
+
+
+
+
+
+-- component markdown:
+body body:
+
+-- ftd.text:
+text: $markdown.body
+role: $copy-relaxed
+color: $text
+margin-bottom.px: 26
+
+-- end: markdown
+
+
+
+
+
+
+
+
+-- ftd.color base:
+light: #18181b
+dark: #18181b
+
+-- ftd.color step-1:
+light: #141414
+dark: #141414
+
+-- ftd.color step-2:
+light: #585656
+dark: #585656
+
+-- ftd.color code:
+light: #2B303B
+dark: #2B303B
+
+-- ftd.color text:
+light: #a8a29e
+dark: #a8a29e
+
+-- ftd.color text-strong:
+light: #ffffff
+dark: #ffffff
