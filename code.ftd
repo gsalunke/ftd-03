@@ -1,0 +1,61 @@
+-- import: gsalunke.github.io/ftd-03/colors as cs
+-- import: gsalunke.github.io/ftd-03/typography as tf
+
+
+
+
+-- code: This is code example
+lang: ftd
+
+\-- component body:
+optional caption caption:
+body body:
+string lang:
+
+
+-- end: code
+
+
+-- component code:
+optional caption caption:
+body body:
+string lang:
+
+-- ftd.column:
+width.fixed.percent: 100
+margin-top.px: 16
+margin-bottom.px: 16
+
+-- ftd.text:
+if: {$code.caption != NULL}
+text: $code.caption
+role: $tf.copy-relaxed
+color: $cs.text
+width.fixed.percent: 100
+background.solid: $cs.step-2
+padding-top.px: 10
+padding-bottom.px: 10
+padding-left.px: 20
+padding-right.px: 20
+border-top-left-radius.px: 4
+border-top-right-radius.px: 4
+
+-- ftd.text:
+text: $code.body
+width.fixed.percent: 100
+role: $tf.copy-relaxed
+color: $cs.text
+padding-top.px: 10
+padding-left.px: 20
+padding-bottom.px: 10
+padding-right.px: 20
+background.solid: $cs.code
+border-bottom-left-radius.px: 4
+border-bottom-right-radius.px: 4
+border-width.px: 1
+border-color: $cs.text
+overflow-x: auto
+
+-- end: ftd.column
+
+-- end: code

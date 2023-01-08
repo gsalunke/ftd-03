@@ -279,7 +279,7 @@ margin-bottom.px: 16
 -- ftd.text:
 text: $h3.title
 role: $heading-small
-color: $cs.text-strong
+color: $text-strong
 padding-bottom.px: 16
 padding-top.px: 8
 
@@ -311,6 +311,7 @@ body body:
 -- ftd.text:
 text: $markdown.body
 role: $copy-relaxed
+color: $text
 margin-bottom.px: 26
 
 -- end: markdown
@@ -320,5 +321,30 @@ margin-bottom.px: 26
 
 
 
+
+
+-- ftd.color base:
+light: #18181b
+dark: #18181b
+
+-- ftd.color step-1:
+light: #141414
+dark: #141414
+
+-- ftd.color step-2:
+light: #585656
+dark: #585656
+
+-- ftd.color code:
+light: #2B303B
+dark: #2B303B
+
+-- ftd.color text:
+light: #a8a29e
+dark: #a8a29e
+
+-- ftd.color text-strong:
+light: #ffffff
+dark: #ffffff
 
 
