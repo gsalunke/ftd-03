@@ -1,4 +1,4 @@
 -- import: fpm
 
--- fpm.package: <user_name>.github.io/<repo_name>
-download-base-url: https://raw.githubusercontent.com/<user_name>/<repo_name>/main
+-- fpm.package: gsalunke.github.io/ftd-03
+download-base-url: https://raw.githubusercontent.com/gsalunke/ftd-03/main
