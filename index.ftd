@@ -15,7 +15,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 -- image: Image 1
-src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
+src: https: //www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters: no_upscale(): max_bytes(150000): strip_icc(): format(webp)/powerpuff_girls-56a00bc45f9b58eba4aea61d.jpg
 
 
 
@@ -43,48 +43,48 @@ This is markdown text.
 
 
 
--- component page:
-optional caption title:
-toc-item list section-item:
-toc-item list subsection-item:
-toc-items list toc:
-optional body body:
-string navtitle:
-string nav-subtitle:
-string current-title:
-children container:
+-- component page: 
+optional caption title: 
+toc-item list section-item: 
+toc-item list subsection-item: 
+toc-items list toc: 
+optional body body: 
+string navtitle: 
+string nav-subtitle: 
+string current-title: 
+children container: 
 
--- ftd.column:
+-- ftd.column: 
 background.solid: $cs.base
 width.fixed.percent: 100
 
 
--- header:
+-- header: 
 section-item: $page.section-item
-subsection-item:$page.subsection-item
+subsection-item: $page.subsection-item
 toc: $page.toc
 navtitle: $page.navtitle
 nav-subtitle: $page.nav-subtitle
 current-title: $page.current-title
 
 
--- ftd.row:
+-- ftd.row: 
 padding.px: 24
 spacing.px: 48
 width.fixed.percent: 100
 
--- ftd.column:
+-- ftd.column: 
 background.solid: $cs.step-1
 padding.px: 24
 min-height.fixed.percent: 100
 width.fixed.percent: 20
 
--- print-toc:
+-- print-toc: 
 item: $page.toc
 
 -- end: ftd.column
 
--- ftd.column:
+-- ftd.column: 
 spacing.px: 32
 width.fixed.percent: 80
 
@@ -96,7 +96,7 @@ role: $tf.heading-hero
 color: $cs.text-strong
 role: $tf.copy-relaxed
 
--- ftd.column:
+-- ftd.column: 
 children: $page.container
 spacing.px: 32
 width.fixed.percent: 100
@@ -120,13 +120,13 @@ width.fixed.percent: 100
 
 
 
--- component print-toc-item:
-toc-item list item:
+-- component print-toc-item: 
+toc-item list item: 
 
--- ftd.row:
+-- ftd.row: 
 padding-left.px: 30
 
--- print-toc-item-one:
+-- print-toc-item-one: 
 item: $obj.name
 url: $obj.url
 $loop$: $print-toc-item.item as $obj
@@ -145,17 +145,17 @@ $loop$: $print-toc-item.item as $obj
 
 
 
--- component print-toc-item-one:
-caption item:
-string url:
+-- component print-toc-item-one: 
+caption item: 
+string url: 
 
--- ftd.row:
+-- ftd.row: 
 padding-left.px: 30
 align-content: center
 
 -- ftd.text: 
-text:$print-toc-item-one.item
-link:$print-toc-item-one.url
+text: $print-toc-item-one.item
+link: $print-toc-item-one.url
 color: $cs.text-strong
 role: $tf.copy-tight
 
@@ -172,13 +172,13 @@ role: $tf.copy-tight
 
 
 
--- component print-toc:
-toc-items list item:
+-- component print-toc: 
+toc-items list item: 
 
--- ftd.column:
+-- ftd.column: 
 width.fixed.percent: 100
 
--- print-toc-one:
+-- print-toc-one: 
 item: $obj.name
 children: $obj.children
 $loop$: $print-toc.item as $obj
@@ -196,13 +196,13 @@ $loop$: $print-toc.item as $obj
 
 
 
--- component print-toc-one:
-string item:
-toc-items list children:
+-- component print-toc-one: 
+string item: 
+toc-items list children: 
 
--- ftd.column:
+-- ftd.column: 
 
--- ftd.column:
+-- ftd.column: 
 
 -- ftd.text: 
 text: $print-toc-one.item
@@ -212,10 +212,10 @@ role: $tf.copy-tight
 
 -- end: ftd.column
 
--- ftd.column:
+-- ftd.column: 
 padding-left.px: 12
 
--- print-toc-one:
+-- print-toc-one: 
 item: $obj.name
 children: $obj.children
 $loop$: $print-toc-one.children as $obj
@@ -235,9 +235,9 @@ $loop$: $print-toc-one.children as $obj
 
 
 
--- component image:
-optional caption title:
-ftd.image-src src:
+-- component image: 
+optional caption title: 
+ftd.image-src src: 
 ftd.align aaa: center
 
 -- ftd.column: 
@@ -245,18 +245,18 @@ width.fixed.percent: 100
 align-content: $image.aaa
 spacing.px: 12
 
--- ftd.column:
+-- ftd.column: 
 width.fixed.percent: 100
 align-content: center
 
--- ftd.image:
+-- ftd.image: 
 src: $image.src
 width.fixed.px: 400
 height.fixed.px: 100
 
 -- end: ftd.column
 
--- ftd.text:
+-- ftd.text: 
 text: $image.title
 color: $cs.text-strong
 role: $tf.copy-tight
@@ -275,48 +275,48 @@ role: $tf.copy-tight
 
 
 
--- component header:
-toc-item list section-item:
-toc-item list subsection-item:
-toc-items list toc:
-string navtitle:
-string nav-subtitle:
-string current-title:
+-- component header: 
+toc-item list section-item: 
+toc-item list subsection-item: 
+toc-items list toc: 
+string navtitle: 
+string nav-subtitle: 
+string current-title: 
 
--- ftd.column:
+-- ftd.column: 
 width.fixed.percent: 100
 
--- ftd.row:
+-- ftd.row: 
 width.fixed.percent: 100
 padding.px: 24
 padding-horizontal.px: 48
 
--- ftd.row:
+-- ftd.row: 
 width.fixed.percent: 26
 
--- ftd.image:
+-- ftd.image: 
 src: $src
 
 -- end: ftd.row
 
--- ftd.row:
+-- ftd.row: 
 width.fixed.percent: 74
 align-content: right
 
--- print-toc-item:
+-- print-toc-item: 
 item: $header.section-item
 
 -- end: ftd.row
 
 -- end: ftd.row
 
--- ftd.row:
+-- ftd.row: 
 background.solid: $cs.step-1
 width.fixed.percent: 100
 padding-vertical.px: 24
 padding-horizontal.px: 48
 
--- ftd.column:
+-- ftd.column: 
 width.fixed.percent: 26
 spacing.px: 12
 
@@ -324,14 +324,14 @@ spacing.px: 12
 color: $cs.text-strong
 role: $tf.copy-tight
 
--- ftd.row:
+-- ftd.row: 
 spacing.px: 8
 
 -- ftd.text: $header.nav-subtitle
 color: $cs.text-strong
 role: $tf.copy-tight
 
--- ftd.row:
+-- ftd.row: 
 
 -- ftd.text: `-`
 color: $cs.text-strong
@@ -352,25 +352,25 @@ role: $tf.copy-tight
 
 -- end: ftd.column
 
--- ftd.column:
+-- ftd.column: 
 align-content: right
 width.fixed.percent: 100
 align-self: center
 
--- ftd.row:
+-- ftd.row: 
 width.fixed.percent: 100
 align-content: right
 
 
--- ftd.column:
+-- ftd.column: 
 align-content: center
 
 
--- ftd.column:
+-- ftd.column: 
 align-content: center
 
 
--- print-toc-item:
+-- print-toc-item: 
 item: $header.subsection-item
 
 -- end: ftd.column
@@ -397,11 +397,11 @@ item: $header.subsection-item
 
 
 
--- record toc-item:
-caption name:
-string url:
+-- record toc-item: 
+caption name: 
+string url: 
 
--- toc-item list item:
+-- toc-item list item: 
 
 -- toc-item: Home
 url: /
@@ -422,7 +422,7 @@ url: /
 
 
 
--- toc-item list sub-item:
+-- toc-item list sub-item: 
 
 -- toc-item: Homepage
 url: /
@@ -442,36 +442,36 @@ url: /
 
 
 
--- record toc-items:
-string name:
-toc-items list children:
+-- record toc-items: 
+string name: 
+toc-items list children: 
 
--- toc-items list toc:
+-- toc-items list toc: 
 
--- toc-items:
+-- toc-items: 
 name: TOC title 1
 
--- toc-items.children:
+-- toc-items.children: 
 
--- toc-items:
+-- toc-items: 
 name: TOC children 1.1
 
--- toc-items.children:
+-- toc-items.children: 
 
--- toc-items:
+-- toc-items: 
 name: TOC children 1.1.1
 
 -- end: toc-items.children
 
 -- end: toc-items.children
 
--- toc-items:
+-- toc-items: 
 name: TOC title 2
 
--- toc-items:
+-- toc-items: 
 name: TOC title 3
 
--- toc-items:
+-- toc-items: 
 name: TOC title 4
 
 -- end: toc
@@ -481,6 +481,6 @@ name: TOC title 4
 
 
 
--- ftd.image-src src:
-light: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
-dark: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+-- ftd.image-src src: 
+light: https: //www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+dark: https: //www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
