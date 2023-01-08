@@ -1,4 +1,5 @@
 -- import: gsalunke.github.io/ftd-03/typography as tf
+-- import: gsalunke.github.io/ftd-03/colors as cs
 
 -- page: PAGE TITLE
 section-item: $item
@@ -23,9 +24,13 @@ src: https://www.liveabout.com/thmb/YCJmu1khSJo8kMYM090QCd9W78U=/1250x0/filters:
 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 
+-- end: tf.h3
+
 -- tf.markdown: 
 
 This is markdown text.
+
+-- end: tf.markdown
 
 -- end: page
 
@@ -50,7 +55,7 @@ string current-title:
 children container:
 
 -- ftd.column:
-background.solid: $tf.base
+background.solid: $cs.base
 width.fixed.percent: 100
 
 
@@ -69,7 +74,7 @@ spacing.px: 48
 width.fixed.percent: 100
 
 -- ftd.column:
-background.solid: $tf.step-1
+background.solid: $cs.step-1
 padding.px: 24
 min-height.fixed.percent: 100
 width.fixed.percent: 20
@@ -84,11 +89,11 @@ spacing.px: 32
 width.fixed.percent: 80
 
 -- ftd.text: $page.title
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.heading-hero
 
 -- ftd.text: $page.body
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-relaxed
 
 -- ftd.column:
@@ -151,7 +156,7 @@ align-content: center
 -- ftd.text: 
 text:$print-toc-item-one.item
 link:$print-toc-item-one.url
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 
 -- end: ftd.row
@@ -202,7 +207,7 @@ toc-items list children:
 -- ftd.text: 
 text: $print-toc-one.item
 padding-bottom.px: 8
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 
 -- end: ftd.column
@@ -253,7 +258,7 @@ height.fixed.px: 100
 
 -- ftd.text:
 text: $image.title
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 
 -- end: ftd.column
@@ -306,7 +311,7 @@ item: $header.section-item
 -- end: ftd.row
 
 -- ftd.row:
-background.solid: $tf.step-1
+background.solid: $cs.step-1
 width.fixed.percent: 100
 padding-vertical.px: 24
 padding-horizontal.px: 48
@@ -316,31 +321,31 @@ width.fixed.percent: 26
 spacing.px: 12
 
 -- ftd.text: $header.navtitle
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 
 -- ftd.row:
 spacing.px: 8
 
 -- ftd.text: $header.nav-subtitle
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 
 -- ftd.row:
 
 -- ftd.text: `-`
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 
 -- ftd.text: `>`
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 padding-top.percent: 10.7
 
 -- end: ftd.row
 
 -- ftd.text: $header.current-title
-color: $tf.text-strong
+color: $cs.text-strong
 role: $tf.copy-tight
 
 -- end: ftd.row
