@@ -1,59 +1,14 @@
 -- import: gsalunke.github.io/ftd-03/assets
 
+-- import: fpm
 
--- record toc-items: 
-string name: 
-string url:
-optional boolean is_active: false
-toc-items list children: 
 
--- toc-items list toc: 
-
--- toc-items: 
-name: TOC title 1
-url: /
-is_active: true
-
--- toc-items.children: 
-
--- toc-items: 
-name: TOC children 1.1
-url: /
-is_active: true
-
--- toc-items.children: 
-
--- toc-items: 
-name: TOC children 1.1.1
-is_active: true
-url: /
-
--- end: toc-items.children
-
--- end: toc-items.children
-
--- toc-items: 
-name: TOC title 2
-is_active: true
-url: /
-
--- toc-items: 
-name: TOC title 3
-is_active: true
-url: /
-
--- toc-items: 
-name: TOC title 4
-is_active: true
-url: /
-
--- end: toc
 
 
 -- header_toc_item_mobile_view: This is title
 link: /
 icon: $assets.files.cross-dark.svg
-toc: $toc
+toc: $empty_toc
 text_color: $inherited.colors.text
 is_active: true
 active_text_color: $inherited.colors.text-strong
@@ -67,12 +22,23 @@ menu_border: $inherited.colors.border
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 -- component header_toc_item_mobile_view:
 caption title:
 optional string link:
 ftd.color text_color:
-toc-items list toc:
-ftd.image-src icon: 
+fpm.toc-item list children:
+optional ftd.image-src icon:
 boolean is_active: 
 ftd.color active_text_color:
 optional string current_url:
@@ -94,7 +60,7 @@ if: {header_toc_item_mobile_view.link != NULL}
 width: fill-container
 
 -- ftd.image:
-;; if: { header_toc_item_mobile_view.icon != NULL } -- TODO FTD 0.3
+;;if: {header_toc_item_mobile_view.icon != NULL} -- TODO FTD 0.3
 src: $header_toc_item_mobile_view.icon
 height.fixed.px: 14
 width: hug-content
@@ -106,9 +72,9 @@ link: $header_toc_item_mobile_view.link
 ;;white-space: nowrap -- TODO FTD 0.3
 padding-left.px: 10
 color: $inherited.colors.text
-color if { header_toc_item_mobile_view.is_active }: $inherited.colors.cta-primary.base
-border-bottom-width.px if { header_toc_item_mobile_view.current_url == header_toc_item_mobile_view.link }: 2
-border-color if { header_toc_item_mobile_view.current_url == header_toc_item_mobile_view.link }: $header_toc_item_mobile_view.active_text_color
+color if {header_toc_item_mobile_view.is_active}: $inherited.colors.cta-primary.base
+border-bottom-width.px if {header_toc_item_mobile_view.current_url == header_toc_item_mobile_view.link}: 2
+border-color if {header_toc_item_mobile_view.current_url == header_toc_item_mobile_view.link}: $header_toc_item_mobile_view.active_text_color
 margin-left.px: 10
 
 -- end: ftd.row
@@ -118,7 +84,7 @@ if: {header_toc_item_mobile_view.link != NULL}
 width: fill-container
 
 -- ftd.image:
-;; if: { header_toc_item_mobile_view.icon != NULL } -- TODO FTD 0.3
+if: {header_toc_item_mobile_view.icon != NULL}
 src: $header_toc_item_mobile_view.icon
 height.fixed.px: 14
 width: hug-content
@@ -131,17 +97,17 @@ role: $inherited.types.copy-relaxed
 padding-left.px: 10
 color: $inherited.colors.text
 color if {header_toc_item_mobile_view.is_active}: $inherited.colors.cta-primary.base
-cursor: default
+cursor: auto
 
 -- end: ftd.row
 
 -- ftd.column:
-;; if: { is_empty(header_toc_item_mobile_view.toc) }
+if: { is_empty(header_toc_item_mobile_view.children) }
 padding-bottom.px: 15
 
 -- show_children_mobile:
-if: { !is_empty(header_toc_item_mobile_view.toc) }
-toc: $header_toc_item_mobile_view.toc
+if: { !is_empty(header_toc_item_mobile_view.children) }
+children: $header_toc_item_mobile_view.children
 menu_link: $header_toc_item_mobile_view.menu_link
 menu_link_active: $header_toc_item_mobile_view.menu_link_active
 menu_bg: $header_toc_item_mobile_view.menu_bg
@@ -164,7 +130,7 @@ menu_hover_bg: $header_toc_item_mobile_view.menu_hover_bg
 
 
 -- component show_children_mobile:
-toc-items list toc:
+fpm.toc-item list children:
 ftd.color menu_bg:
 ftd.color menu_hover_bg:
 ftd.color menu_link:
@@ -172,17 +138,15 @@ ftd.color menu_link_active:
 ftd.color menu_border:
 
 -- ftd.column:
-if: { !is_empty(show_children_mobile.toc) }
+if: { !is_empty(show_children_mobile.children) }
 padding.px: 5
 padding-left.px: 15
 
 -- l_mobile:
+obj: $obj
+$loop$: $show_children_mobile.children as $obj
 menu_link: $show_children_mobile.menu_link
 menu_link_active: $show_children_mobile.menu_link_active
-title: Ganesh
-url: /
-is_active: true
-font-icon: $assets.files.cross-dark.svg
 
 -- end: ftd.column
 
@@ -194,55 +158,53 @@ font-icon: $assets.files.cross-dark.svg
 
 
 
-
-
-
 -- component l_mobile:
-;; toc-items toc:
-ftd.image-src font-icon:
+fpm.toc-item obj:
 ftd.color menu_link:
-string title: 
-string url:
-boolean is_active: false
 ftd.color menu_link_active:
 
 -- ftd.column:
-width: fill-container
+width: fill
 
 -- ftd.row:
-if: { l_mobile.url != NULL }
+if: { l_mobile.obj.url != NULL }
 width: fill-container
 
 -- ftd.image:
-;; if: { l_mobile.font-icon != NULL } -- TODO FTD 0.3
-src: $l_mobile.font-icon
+;; if: { l_mobile.obj.font-icon != NULL } -- TODO FTD 0.3
+src: $l_mobile.obj.font-icon
 height.fixed.px: 14
 width: hug-content
 align-self: center
 
--- ftd.text: $l_mobile.title
-link: $l_mobile.url
+-- ftd.text: $l_mobile.obj.title
+link: $l_mobile.obj.url
+color: $l_mobile.menu_link
+color if { l_mobile.obj.is-active }: $inherited.colors.cta-primary.base
 padding-vertical.px: 8
 padding-horizontal.px: 10
+role: $inherited.type.copy-relaxed
 width: fill-container
 
 -- end: ftd.row
 
 -- ftd.row:
-if: { l_mobile.url == NULL }
+if: { l_mobile.obj.url == NULL }
 width: fill-container
 spacing.px: 8
 
 -- ftd.image:
-;; if: { l_mobile.font-icon != NULL } -- TODO FTD 0.3
-src: $l_mobile.font-icon
+;; if: { l_mobile.obj.font-icon != NULL } -- TODO FTD 0.3
+src: $l_mobile.obj.font-icon
 height.fixed.px: 14
 width: hug-content
 align-self: center
 
--- ftd.text: $l_mobile.title
+-- ftd.text: $l_mobile.obj.title
+color: $inherited.colors.background.step-2
 padding-vertical.px: 8
 padding-horizontal.px: 10
+role: $inherited.types.copy-relaxed
 width: fill-container
 
 
@@ -257,3 +219,46 @@ width: fill-container
 
 
 
+
+
+
+
+
+
+
+
+
+-- fpm.toc-item list empty_toc:
+
+
+
+-- fpm.toc-item list extra:
+$processor$: toc
+
+- APIs & SKDs: 
+  - API:
+  - Stripe.js: /index/
+  - CLI: /cli/
+  - ios: /ios/
+  - Android: /android/
+  - React Native: /react-native/
+- Support: /support/
+
+
+
+-- fpm.toc-item list footer_list:
+$processor$: toc
+
+- legal: /legal/
+- support: /support/
+- feedback: /feedback/
+
+
+
+-- fpm.toc-item list languages:
+$processor$: toc
+
+- English: /
+- Hindi: /hi
+- Spanish: /es
+- German: /de
