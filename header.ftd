@@ -57,7 +57,6 @@ site-url: $site-url
 site-name: $site-name
 logo-height: 38
 current-url: /
-menu-icon: $assets.files.hamburger-dark.svg
 
 
 
@@ -252,7 +251,7 @@ left.px: 0
 right.px: 0
 background.solid:  $inherited.colors.background.overlay
 ;; z-index: 1 -- TODO FTD 0.3
-;; $on-click$: toggle $sidebar-open -- TODO FTD 0.3
+$on-click$: $ftd.toggle($a = $sidebar-open)
 
 -- ftd.image:
 src: $assets.files.static.header.cross.svg
@@ -453,6 +452,7 @@ optional string nav-sub-section-title-url:
 
 -- ftd.column:
 width: fill-container
+background.solid: $inherited.colors.background.base
 
 -- ftd.row:
 width: fill-container
@@ -491,7 +491,7 @@ margin-top.px: 8
 align-self: center
 
 -- ftd.text: $site-name
-if: { header-desktop.site-name !== NULL }
+if: { header-desktop.site-name != NULL }
 role: $inherited.types.heading-medium
 color: $inherited.colors.text-strong
 align-self: center
@@ -499,7 +499,7 @@ margin-left.px if { header-desktop.site-logo != NULL }: 16
 white-space: nowrap
 
 -- fallback-title:
-if: { header-desktop.site-logo = NULL }
+if: { header-desktop.site-logo == NULL }
 site-name: $header-desktop.site-name
 
 -- end: ftd.row
@@ -691,7 +691,7 @@ boolean pricing-cta:
 -- ftd.column: 
 width: fill-container
 background.solid: $header-mobile.background
-;; $on-click-outside$: $show-section = false -- TODO FTD 0.3
+$on-click-outside$: $ftd.set-bool($a = $show-section, v = false)
 
 -- ftd.row:
 ;; id: left-side -- TODO FTD 0.3
@@ -707,7 +707,7 @@ spacing.px: 16
 -- ftd.image:
 src: $header-mobile.menu-icon
 width.fixed.px: 24
-;; $on-click$: toggle $header-mobile.sidebar-open -- TODO FTD 0.3
+;; $on-click$: $ftd.toggle(a = $sidebar-open) -- TODO FTD 0.3
 align-self: center
 
 -- ftd.row:
@@ -738,7 +738,7 @@ spacing.px: 15
 link: $header-mobile.brand-site-url
 
 -- ftd.image:
-;; if: { header-mobile.brand-site-logo != NULL } -- TODO FTD 0.3
+if: { header-mobile.brand-site-logo != NULL }
 src: $header-mobile.brand-site-logo
 width: hug-content
 height.fixed.px: 36
@@ -813,7 +813,7 @@ width: fill-container
 background.solid: $inherited.colors.background.step-2
 ;; id: change-container -- TODO FTD 0.3
 padding-horizontal.px: 20
-;; $on-click$: toggle $show-section  -- TODO FTD 0.3
+$on-click$: $ftd.toggle($a = $show-section)
 
 -- ftd.row:
 width: fill-container
@@ -999,7 +999,7 @@ border-color if { header-top-right-item.current-url == header-top-right-item.lin
 
 -- component header-item:
 caption title:
-ftd.image-src icon:
+;; ftd.image-src icon: -- TODO FTD 0.3
 ;; optional ftd.image-src icon: -- TODO FTD 0.3
 optional string link:
 ftd.color text-color:
@@ -1011,13 +1011,13 @@ ftd.color menu-hover-bg:
 ftd.color menu-link:
 ftd.color menu-link-active:
 ftd.color menu-border:
-boolean open: false
+boolean $open: false
 
 -- ftd.row: 
-;; $on-click$: toggle $header-item.open -- TODO FTD 0.3
-;; $on-click-outside$: $header-item.open = false -- TODO FTD 0.3
+$on-click$: $ftd.toggle($a = $header-item.open)
+$on-click-outside$: $ftd.set-bool($a = $header-item.open, v = false)
 
--- ftd.image:
+/-- ftd.image:
 ;; if: { header-item.icon != NULL } -- TODO FTD 0.3
 src: $header-item.icon
 max-height.fixed.px: 20
@@ -1070,11 +1070,11 @@ ftd.color menu-hover-bg:
 ftd.color menu-link:
 ftd.color menu-link-active:
 ftd.color menu-border:
-boolean open: false
-;; $on-click$: toggle $open -- TODO FTD 0.3
-;; $on-click-outside$: $open = false -- TODO FTD 0.3
+boolean $open: false
 
 -- ftd.column: 
+$on-click$: $ftd.toggle($a = $header-toc-item-mobile-view.open)
+$on-click-outside$: $ftd.set-bool($a = $header-toc-item-mobile-view.open, v = false)
 
 -- ftd.row:
 if: { header-toc-item-mobile-view.link != NULL }
@@ -1162,11 +1162,11 @@ ftd.color menu-hover-bg:
 ftd.color menu-link:
 ftd.color menu-link-active:
 ftd.color menu-border:
-boolean open: false
-;; $on-click$: toggle $open -- TODO FTD 0.3
-;; $on-click-outside$: $open = false -- TODO FTD 0.3
+boolean $open: false
 
 -- ftd.column:
+$on-click$: $ftd.toggle($a = $header-item-mobile-view.open)
+$on-click-outside$: $ftd.set-bool($a = $header-item-mobile-view.open, v = false)
 
 -- ftd.text: $header-item-mobile-view.title
 role: $inherited.types.fine-print
@@ -1249,13 +1249,13 @@ ftd.color menu-link:
 ftd.color menu-link-active:
 ftd.color menu-border:
 string link-style:
-boolean open: false
+boolean $open: false
 
 -- ftd.column: 
 width: fill-container
 align-self: start
-;; $on-click$: toggle $open -- TODO FTD 0.3
-;; $on-click-outside$: $open = false -- TODO FTD 0.3
+$on-click$: $ftd.toggle($a = $header-item-mobile.open)
+$on-click-outside$: $ftd.set-bool($a = $header-item-mobile.open, v = false)
 
 -- ftd.row:
 width: fill-container
