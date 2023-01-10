@@ -4,7 +4,7 @@
 
 -- boolean show-section: true
 
--- boolean sidebar_open: false
+-- boolean sidebar_open: true
 
 -- boolean login-button: false
 
@@ -85,8 +85,8 @@ fpm.toc-item list extra:
 ;; ps.product_data list products: 
 integer menu_left: 10
 integer menu_right: 10
-optional string logo_width: 
-optional string logo_height: 26
+integer logo_width: 30
+integer logo_height: 30
 string link_style: regular
 ftd.color background: $inherited.colors.background.base
 ftd.color text_color: $inherited.colors.text-strong
@@ -118,7 +118,7 @@ width: fill-container
 background.solid: $header.background
 ;; z-index: 10 -- TODO FTD 0.3
 
--- mobile_sidebar:
+-- mobile-sidebar:
 if: { sidebar_open }
 
 -- ftd.text: 
@@ -127,7 +127,7 @@ text: sometext
 -- end: ftd.column
 
 -- menu_mobile:
-if: {sidebar_open}
+if: { sidebar_open }
 parent_brand: $header.parent_brand
 site_logo: $header.site_logo
 menu_icon: $header.menu_icon
@@ -157,7 +157,7 @@ login_btn_txt: $header.login_btn_txt
 sign_in_txt: $header.sign_in_txt
 products: $header.products
 
--- header_desktop:
+-- header-desktop:
 if: { ftd.device == "desktop" }
 site_logo: $header.site_logo
 site_url: $header.site_url 
@@ -248,7 +248,7 @@ products: $header.products
 
 
 
--- component mobile_sidebar:
+-- component mobile-sidebar:
 
 -- ftd.column:
 anchor: window
@@ -270,7 +270,7 @@ top.px: 20
 
 -- end: ftd.column
 
--- end: mobile_sidebar
+-- end: mobile-sidebar
 
 
 
@@ -295,8 +295,8 @@ fpm.toc-item list footer_nav:
 fpm.toc-item list sub_sections:
 integer menu_left: 
 integer menu_right:
-optional string logo_width: 
-optional string logo_height: 
+integer logo_width: 30
+integer logo_height: 30
 string link_style: 
 ftd.color background:  
 ftd.resizing width: 
@@ -422,7 +422,7 @@ $loop$: $menu_mobile.footer_list as $obj
 
 
 
--- component header_desktop:
+-- component header-desktop:
 ;; ps.product_data list products:
 optional ftd.image-src site_logo:
 string site_url: 
@@ -441,8 +441,8 @@ boolean include_language_switcher:
 fpm.toc-item list extra:
 integer menu_left: 
 integer menu_right:
-optional string logo_width: 
-optional string logo_height: 
+integer logo_width: 30
+integer logo_height: 30
 string link_style:
 optional string login_btn_txt:
 optional string sign_in_txt: 
@@ -464,7 +464,7 @@ optional string nav_sub_section_title:
 optional string nav_sub_section_title_url:
 
 -- ftd.column:
-width.fixed.percent: $header_desktop.width
+width.fixed.percent: $header-desktop.width
 
 -- ftd.row:
 width.fixed.percent: 100
@@ -480,38 +480,38 @@ width.fixed.percent: 100
 ;; id: logo-text-container -- TODO FTD 0.3
 
 -- ftd.column:
-if: {!header_desktop.parent_brand}
+if: {!header-desktop.parent_brand}
 ;; id: iddd -- TODO FTD 0.3
 
 -- ftd.text:
-text: $header_desktop.brand_caption
+text: $header-desktop.brand_caption
 color: $inherited.colors.text-strong
 role: $inherited.types.fine-print
 
 -- end: ftd.column
 
 -- ftd.row:
-link: $header_desktop.site_url
+link: $header-desktop.site_url
 
 -- ftd.image:
-if: {header_desktop.site_logo != NULL}
-src: $header_desktop.site_logo
-width.fixed.px: $header_desktop.logo_width
-height.fixed.px: $header_desktop.logo_height
+if: {header-desktop.site_logo != NULL}
+src: $header-desktop.site_logo
+width.fixed.px: $header-desktop.logo_width
+height.fixed.px: $header-desktop.logo_height
 margin-top.px: 8
 align-self: center
 
 -- ftd.text: $site_name
-if: {$header_desktop.site_name !== NULL}
+if: {$header-desktop.site_name !== NULL}
 role: $inherited.types.heading-medium
 color: $inherited.colors.text-strong
 align-self: center
-margin-left.px if {$header_desktop.site_logo != NULL}: 16
+margin-left.px if {$header-desktop.site_logo != NULL}: 16
 white-space: nowrap
 
 -- fallback_title:
-if: {$header_desktop.site_logo = NULL}
-site_name: $header_desktop.site_name
+if: {$header-desktop.site_logo = NULL}
+site_name: $header-desktop.site_name
 
 -- end: ftd.row
 
@@ -525,7 +525,7 @@ margin-left.px: 20
 border-color: $inherited.colors.border
 
 -- ps.switcher:
-products: $header_desktop.products
+products: $header-desktop.products
 
 -- end: ftd.row
 
@@ -538,29 +538,29 @@ padding-top.px: 12
 ;; z-index: 1000 -- TODO FTD 0.3
 
 -- header_item: $obj.title
-$loop$: $header_desktop.sections as $obj
+$loop$: $header-desktop.sections as $obj
 link: $obj.url
 is-active: $obj.is-active
-text_color: $header_desktop.text_color
-active_text_color: $header_desktop.active_text_color
-current_url: $header_desktop.current_url
-menu_right: $header_desktop.menu_right
-menu_bg: $header_desktop.menu_bg 
-menu_hover_bg: $header_desktop.menu_hover_bg
-menu_link: $header_desktop.menu_link
-menu_link_active: $header_desktop.menu_link_active
-menu_border: $header_desktop.menu_border
+text_color: $header-desktop.text_color
+active_text_color: $header-desktop.active_text_color
+current_url: $header-desktop.current_url
+menu_right: $header-desktop.menu_right
+menu_bg: $header-desktop.menu_bg 
+menu_hover_bg: $header-desktop.menu_hover_bg
+menu_link: $header-desktop.menu_link
+menu_link_active: $header-desktop.menu_link_active
+menu_border: $header-desktop.menu_border
 icon: $obj.font-icon
 
 -- pricing-cta-text: Try for Free
-if: {header_desktop.pricing_cta}
+if: {header-desktop.pricing_cta}
 
 -- ftd.row:
-if: {header_desktop.login_button}
+if: {header-desktop.login_button}
 
 -- login_signup:
-login: $header_desktop.login_btn_txt
-sign-in: $header_desktop.sign_in_txt
+login: $header-desktop.login_btn_txt
+sign-in: $header-desktop.sign_in_txt
 
 -- end: ftd.row
 
@@ -574,34 +574,34 @@ width.fixed.percent: 100
 ;; id: bottom-row -- TODO FTD 0.3
 
 -- ftd.column:
-if: {header_desktop.current_section != NULL}
+if: {header-desktop.current_section != NULL}
 width.fixed.percent: 100
 padding-vertical.px: 24
 
--- ftd.text: $header_desktop.current_section.title
-if: {header_desktop.current_section.title != NULL}
+-- ftd.text: $header-desktop.current_section.title
+if: {header-desktop.current_section.title != NULL}
 role: $inherited.types.heading-small
 color: $inherited.colors.text-strong
-link: $header_desktop.current_section.url
+link: $header-desktop.current_section.url
 padding-bottom.px: 8
 
 -- ftd.row:
 width.fixed.percent: 100
 ;; id: selection-container -- TODO FTD 0.3
 
--- ftd.text: $header_desktop.current_subsection.title
-if: {header_desktop.current_subsection.title != NULL}
+-- ftd.text: $header-desktop.current_subsection.title
+if: {header-desktop.current_subsection.title != NULL}
 role: $inherited.types.label-small
 color: $inherited.colors.text-strong
-link: $header_desktop.current_subsection.url
+link: $header-desktop.current_subsection.url
 white-space: nowrap
 margin-right.px: 8
 
 -- ftd.row:
-if: {header_desktop.current_subsection.title != NULL}
+if: {header-desktop.current_subsection.title != NULL}
 
 -- ftd.row:
-if: {header_desktop.current_page.title != NULL}
+if: {header-desktop.current_page.title != NULL}
 
 -- ftd.text: ->
 role: $inherited.types.label-small
@@ -613,11 +613,11 @@ margin-right.px: 8
 
 -- end: ftd.row 
 
--- ftd.text: $header_desktop.current_page.title 
-if: {header_desktop.current_page.title != NULL}
+-- ftd.text: $header-desktop.current_page.title 
+if: {header-desktop.current_page.title != NULL}
 role: $inherited.types.label-small
 color: $inherited.colors.text-strong
-link: $header_desktop.current_page.url 
+link: $header-desktop.current_page.url 
 white-space: nowrap
 margin-right.px: 8
 
@@ -629,28 +629,28 @@ margin-right.px: 8
 ;; id: left-side -- TODO FTD 0.3
 width.fixed.percent: 100
 align-self: right
-padding-vertical.px if {$header_desktop.sub_sections != NULL}: 24
-margin-top.px if {header_desktop.current_subsection.title != NULL}: 16
-margin-top.px if {header_desktop.current_section.title != NULL}: 8
+padding-vertical.px if {$header-desktop.sub_sections != NULL}: 24
+margin-top.px if {header-desktop.current_subsection.title != NULL}: 16
+margin-top.px if {header-desktop.current_section.title != NULL}: 8
 
 -- ftd.row:
 width: hug-content
 align-self: right
 
 -- header_item: $obj.title
-$loop$: $header_desktop.sub_sections as $obj
+$loop$: $header-desktop.sub_sections as $obj
 is-active: $obj.is-active
 link: $obj.url
-text_color: $header_desktop.text_color
-active_text_color: $header_desktop.active_text_color
-current_url: $header_desktop.current_url
-menu_right: $header_desktop.menu_right
-menu_left: $header_desktop.menu_left
-menu_bg: $header_desktop.menu_bg 
-menu_link: $header_desktop.menu_link
-menu_link_active: $header_desktop.menu_link_active
-menu_border: $header_desktop.menu_border
-menu_hover_bg: $header_desktop.menu_hover_bg
+text_color: $header-desktop.text_color
+active_text_color: $header-desktop.active_text_color
+current_url: $header-desktop.current_url
+menu_right: $header-desktop.menu_right
+menu_left: $header-desktop.menu_left
+menu_bg: $header-desktop.menu_bg 
+menu_link: $header-desktop.menu_link
+menu_link_active: $header-desktop.menu_link_active
+menu_border: $header-desktop.menu_border
+menu_hover_bg: $header-desktop.menu_hover_bg
 icon: $obj.font-icon
 
 -- end: ftd.row
@@ -661,7 +661,282 @@ icon: $obj.font-icon
 
 -- end: ftd.column
 
--- end: header_desktop
+-- end: header-desktop
+
+
+
+
+
+
+
+
+-- component header-mobile:
+;; ps.product_data list products: $ps.product
+ftd.image-src menu_icon:
+optional ftd.image-src site_logo:
+optional ftd.image-src brand_site_logo:
+optional string brand_site_name:
+optional boolean parent_brand:
+string site_url: 
+string current_url:
+optional string brand_site_url:
+optional string site_name:
+fpm.toc-item list sections:
+fpm.toc-item list sub_sections:
+fpm.toc-item list toc:
+optional fpm.toc-item current_subsection: 
+optional fpm.toc-item current_section: 
+optional fpm.toc-item current_page:
+boolean include_dark_mode_switcher:
+boolean include_language_switcher:
+integer menu_left: 
+integer menu_right:
+integer logo_width: 30
+integer logo_height: 30
+string link_style: 
+ftd.color background:  
+ftd.color text_color: 
+ftd.color active_text_color:
+ftd.color menu_hover_bg:
+ftd.color menu_border:
+ftd.color menu_bg: 
+ftd.color menu_link: 
+ftd.color menu_link_active: 
+ftd.resizing width: 
+boolean pricing_cta:
+
+-- ftd.column: 
+width: $header-mobile.width
+background.solid: $header-mobile.background
+;; $on-click-outside$: $show-section = false -- TODO FTD 0.3
+
+-- ftd.row:
+;; id: left-side -- TODO FTD 0.3
+padding-horizontal.px: 16
+padding-vertical.px: 16
+width: fill-container
+
+-- ftd.row:
+width: fill-container
+;; id: sidelogo-container -- TODO FTD 0.3
+spacing.px: 16
+
+-- ftd.image:
+src: $header-mobile.menu_icon
+width.fixed.px: 24
+;; $on-click$: toggle $header-mobile.sidebar_open -- TODO FTD 0.3
+align-self: center
+
+-- ftd.row:
+if: {header-mobile.parent_brand}
+spacing.px: 8
+link: $header-mobile.site_url
+
+-- ftd.image:
+;; if: { header-mobile.site_logo != NULL } -- TODO FTD 0.3
+src: $header-mobile.site_logo
+width.fixed.px: $header-mobile.logo_width
+height.fixed.px: $header-mobile.logo_height
+
+-- ftd.text: $header-mobile.site_name
+if: { header-mobile.site_name != NULL }
+role: $inherited.types.heading-medium
+color: $inherited.colors.text-strong
+
+-- fallback_title:
+if: { header-mobile.site_logo == NULL }
+site_name: $header-mobile.site_name
+
+-- end: ftd.row
+
+-- ftd.row:
+if: { !header-mobile.parent_brand }
+spacing.px: 15
+link: $header-mobile.brand_site_url
+
+-- ftd.image:
+;; if: { header-mobile.brand_site_logo != NULL } -- TODO FTD 0.3
+src: $header-mobile.brand_site_logo
+width: hug-content
+height.fixed.px: 36
+
+-- ftd.text: $header-mobile.brand_site_name
+if: { header-mobile.brand_site_name != NULL }
+role: $inherited.types.copy-relaxed
+color: $inherited.colors.text-strong
+
+-- fallback_title:
+if: { header-mobile.brand_site_name != NULL }
+site_name: $header-mobile.brand_site_name
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.row:
+margin-top.px: 8
+
+-- pricing-cta-text: Try for Free
+if: { header-mobile.pricing_cta }
+
+-- end: ftd.row
+
+-- ftd.row:
+;; if: { header-mobile.current_section != NULL }
+width: fill-container
+background.solid: $inherited.colors.background.step-1
+;; id: bottom-row -- TODO FTD 0.3
+
+-- ftd.row:
+width: hug-content
+
+-- ftd.text: $header-mobile.current_section.title
+if: { header-mobile.current_section != NULL }
+role: $inherited.types.label-small
+color: $inherited.colors.text
+link: $header-mobile.current_section.url
+background-color: $inherited.colors.cta-tertiary.base
+padding-vertical.px: 8
+padding-horizontal.px: 8
+width: fill-container
+white-space: nowrap
+
+-- end: ftd.row
+
+-- ftd.row:
+width: fill-container
+spacing.px: 8
+padding-top.px: 8
+overflow-x: auto
+
+-- header-item-mobile-view: $obj.title
+$loop$: $header-mobile.sub_sections as $obj
+children: $obj.children 
+;; is-active: $obj.is-active -- TODO FTD 0.3
+link: $obj.url
+text_color: $header-mobile.text_color
+active_text_color: $header-mobile.active_text_color
+current_url: $header-mobile.current_url
+menu_left: $header-mobile.menu_left
+menu_bg: $header-mobile.menu_bg 
+menu_link: $header-mobile.menu_link
+menu_link_active: $header-mobile.menu_link_active
+menu_border: $header-mobile.menu_border
+menu_hover_bg: $header-mobile.menu_hover_bg
+
+-- end: ftd.row
+
+-- ftd.row:
+width: fill-container
+background.solid: $inherited.colors.background.step-2
+;; id: change-container -- TODO FTD 0.3
+padding-horizontal.px: 20
+;; $on-click$: toggle $show-section  -- TODO FTD 0.3
+
+-- ftd.row:
+width: fill-container
+padding-vertical.px: 16
+spacing.px: 4
+;; id: selection-container -- TODO FTD 0.3
+
+-- ftd.text: $header-mobile.current_subsection.title
+if: { header-mobile.current_subsection != NULL }
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+white-space: nowrap
+
+-- ftd.row:
+if: { header-mobile.current_subsection != NULL }
+
+-- ftd.row:
+if: { header-mobile.current_page != NULL }
+
+-- ftd.text: ->
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+white-space: nowrap
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.text: $header-mobile.current_page.title 
+if:  { header-mobile.current_page != NULL }
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+white-space: nowrap
+
+-- end: ftd.row
+
+-- ftd.row:
+align-self: end
+height: fill-container
+
+-- ftd.row:
+align-self: center
+width: fill-container
+
+-- ftd.image: 
+if: { !show-section }
+src: $assets.files.static.down-arrow-dark.svg
+height: hug-content
+width.fixed.px: 12
+
+-- ftd.image: 
+if:  { show-section }
+src: $assets.files.static.up-arrow-dark.svg
+width.fixed.px: 12
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.column: 
+if: { show-section }
+width: fill-container
+anchor: parent
+background.solid: $inherited.colors.background.step-1
+top.px: 32
+left.px: 0
+
+-- ftd.column:
+width: fill-container
+spacing.px: 8
+padding-vertical.px: 12
+padding-horizontal.px: 24
+overflow-x: auto
+
+-- header_toc_item_mobile_view: $obj.title
+$loop$: $header-mobile.toc as $obj
+children: $obj.children 
+;; is-active: $obj.is-active
+link: $obj.url
+text_color: $header-mobile.text_color
+active_text_color: $header-mobile.active_text_color
+current_url: $header-mobile.current_url
+icon: $obj.font-icon
+menu_left: $header-mobile.menu_left
+menu_bg: $header-mobile.menu_bg 
+menu_link: $header-mobile.menu_link
+menu_link_active: $header-mobile.menu_link_active
+menu_border: $header-mobile.menu_border
+menu_hover_bg: $header-mobile.menu_hover_bg
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: header-mobile
+
+
 
 
 
@@ -977,7 +1252,6 @@ padding-horizontal.px: 10
 role: $inherited.types.copy-relaxed
 width: fill-container
 
-
 -- end: ftd.row
 
 -- end: ftd.column
@@ -1028,281 +1302,6 @@ margin-left.px: 10
 -- end: ftd.column
 
 -- end: header-item-mobile-view
-
-
-
-
-
-
-
-
-
-
--- component header-mobile:
-;; ps.product_data list products: $ps.product
-ftd.image-src menu_icon:
-optional ftd.image-src site_logo:
-optional ftd.image-src brand_site_logo:
-optional string brand_site_name:
-optional boolean parent_brand:
-string site_url: 
-string current_url:
-optional string brand_site_url:
-optional string site_name:
-fpm.toc-item list sections:
-fpm.toc-item list sub_sections:
-fpm.toc-item list toc:
-optional fpm.toc-item current_subsection: 
-optional fpm.toc-item current_section: 
-optional fpm.toc-item current_page:
-boolean include_dark_mode_switcher:
-boolean include_language_switcher:
-integer menu_left: 
-integer menu_right:
-integer logo_width: 24
-integer logo_height: 40
-string link_style: 
-ftd.color background:  
-ftd.color text_color: 
-ftd.color active_text_color:
-ftd.color menu_hover_bg:
-ftd.color menu_border:
-ftd.color menu_bg: 
-ftd.color menu_link: 
-ftd.color menu_link_active: 
-ftd.resizing width: 
-boolean pricing_cta:
-
--- ftd.column: 
-width: $header-mobile.width
-background.solid: $header-mobile.background
-;; $on-click-outside$: $show-section = false -- TODO FTD 0.3
-
--- ftd.row:
-;; id: left-side -- TODO FTD 0.3
-padding-horizontal.px: 16
-padding-vertical.px: 16
-width: fill-container
-
--- ftd.row:
-width: fill-container
-;; id: sidelogo-container -- TODO FTD 0.3
-spacing.px: 16
-
--- ftd.image:
-src: $header-mobile.menu_icon
-width.fixed.px: 24
-;; $on-click$: toggle $header-mobile.sidebar_open -- TODO FTD 0.3
-align-self: center
-
--- ftd.row:
-if: {header-mobile.parent_brand}
-spacing.px: 8
-link: $header-mobile.site_url
-
--- ftd.image:
-;; if: { header-mobile.site_logo != NULL } -- TODO FTD 0.3
-src: $header-mobile.site_logo
-width.fixed.px: $header-mobile.logo_width
-height.fixed.px: $header-mobile.logo_height
-
--- ftd.text: $header-mobile.site_name
-if: { header-mobile.site_name != NULL }
-role: $inherited.types.heading-medium
-color: $inherited.colors.text-strong
-
--- fallback_title:
-if: { header-mobile.site_logo == NULL }
-site_name: $header-mobile.site_name
-
--- end: ftd.row
-
--- ftd.row:
-if: { !header-mobile.parent_brand }
-spacing.px: 15
-link: $header-mobile.brand_site_url
-
--- ftd.image:
-;; if: { header-mobile.brand_site_logo != NULL } -- TODO FTD 0.3
-src: $header-mobile.brand_site_logo
-width: hug-content
-height.fixed.px: 36
-
--- ftd.text: $header-mobile.brand_site_name
-if: { header-mobile.brand_site_name != NULL }
-role: $inherited.types.copy-relaxed
-color: $inherited.colors.text-strong
-
--- fallback_title:
-if: { header-mobile.brand_site_name != NULL }
-site_name: $header-mobile.brand_site_name
-
--- end: ftd.row
-
--- end: ftd.row
-
--- ftd.row:
-margin-top.px: 8
-
--- pricing-cta-text: Try for Free
-if: { header-mobile.pricing_cta }
-
--- end: ftd.row
-
--- ftd.row:
-;; if: { header-mobile.current_section != NULL }
-width: fill-container
-background.solid: $inherited.colors.background.step-1
-;; id: bottom-row -- TODO FTD 0.3
-
--- ftd.row:
-width: hug-content
-
--- ftd.text: $header-mobile.current_section.title
-if: { header-mobile.current_section != NULL }
-role: $inherited.types.label-small
-color: $inherited.colors.text
-link: $header-mobile.current_section.url
-background-color: $inherited.colors.cta-tertiary.base
-padding-vertical.px: 8
-padding-horizontal.px: 8
-width: fill-container
-white-space: nowrap
-
--- end: ftd.row
-
--- ftd.row:
-width: fill-container
-spacing.px: 8
-padding-top.px: 8
-overflow-x: auto
-
--- header-item-mobile-view: $obj.title
-$loop$: $header-mobile.sub_sections as $obj
-children: $obj.children 
-;; is-active: $obj.is-active -- TODO FTD 0.3
-link: $obj.url
-text_color: $header-mobile.text_color
-active_text_color: $header-mobile.active_text_color
-current_url: $header-mobile.current_url
-menu_left: $header-mobile.menu_left
-menu_bg: $header-mobile.menu_bg 
-menu_link: $header-mobile.menu_link
-menu_link_active: $header-mobile.menu_link_active
-menu_border: $header-mobile.menu_border
-menu_hover_bg: $header-mobile.menu_hover_bg
-
--- end: ftd.row
-
--- ftd.row:
-width: fill-container
-background.solid: $inherited.colors.background.step-2
-;; id: change-container -- TODO FTD 0.3
-padding-horizontal.px: 20
-;; $on-click$: toggle $show-section  -- TODO FTD 0.3
-
--- ftd.row:
-width: fill-container
-padding-vertical.px: 16
-spacing.px: 4
-;; id: selection-container -- TODO FTD 0.3
-
--- ftd.text: $header-mobile.current_subsection.title
-if: { header-mobile.current_subsection != NULL }
-role: $inherited.types.label-small
-color: $inherited.colors.text-strong
-white-space: nowrap
-
--- ftd.row:
-if: { header-mobile.current_subsection != NULL }
-
--- ftd.row:
-if: { header-mobile.current_page != NULL }
-
--- ftd.text: ->
-role: $inherited.types.label-small
-color: $inherited.colors.text-strong
-white-space: nowrap
-
--- end: ftd.row
-
--- end: ftd.row
-
--- ftd.text: $header-mobile.current_page.title 
-if:  { header-mobile.current_page != NULL }
-role: $inherited.types.label-small
-color: $inherited.colors.text-strong
-white-space: nowrap
-
--- end: ftd.row
-
--- ftd.row:
-align-self: end
-height: fill-container
-
--- ftd.row:
-align-self: center
-width: fill-container
-
--- ftd.image: 
-if: { !show-section }
-src: $assets.files.static.down-arrow-dark.svg
-height: hug-content
-width.fixed.px: 12
-
--- ftd.image: 
-if:  { show-section }
-src: $assets.files.static.up-arrow-dark.svg
-width.fixed.px: 12
-
--- end: ftd.row
-
--- end: ftd.row
-
--- end: ftd.row
-
--- ftd.column: 
-if: { show-section }
-width: fill-container
-anchor: parent
-background.solid: $inherited.colors.background.step-1
-top.px: 32
-left.px: 0
-
--- ftd.column:
-width: fill-container
-spacing.px: 8
-padding-vertical.px: 12
-padding-horizontal.px: 24
-overflow-x: auto
-
--- header_toc_item_mobile_view: $obj.title
-$loop$: $header-mobile.toc as $obj
-children: $obj.children 
-;; is-active: $obj.is-active
-link: $obj.url
-text_color: $header-mobile.text_color
-active_text_color: $header-mobile.active_text_color
-current_url: $header-mobile.current_url
-icon: $obj.font-icon
-menu_left: $header-mobile.menu_left
-menu_bg: $header-mobile.menu_bg 
-menu_link: $header-mobile.menu_link
-menu_link_active: $header-mobile.menu_link_active
-menu_border: $header-mobile.menu_border
-menu_hover_bg: $header-mobile.menu_hover_bg
-
--- end: ftd.column
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end: header-mobile
 
 
 
