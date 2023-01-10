@@ -248,6 +248,180 @@ products: $header.products
 
 
 
+-- component mobile_sidebar:
+
+-- ftd.column:
+anchor: window
+top.px: 0
+bottom.px: 0
+left.px: 0
+right.px: 0
+background.solid:  $inherited.colors.background.overlay
+;; z-index: 1 -- TODO FTD 0.3
+;; $on-click$: toggle $sidebar_open -- TODO FTD 0.3
+
+-- ftd.image:
+src: $assets.files.static.header.cross.svg
+height: 24
+width: hug-content
+anchor: window
+right.px: 16
+top.px: 20
+
+-- end: ftd.column
+
+-- end: mobile_sidebar
+
+
+
+
+
+
+
+
+
+
+-- componenet menu_mobile:
+ps.product_data list products:
+optional ftd.image-src site_logo:
+ftd.image-src menu_icon:
+string site_url: 
+string current_url:
+optional string brand_caption:
+optional string site_name:
+boolean parent_brand: 
+fpm.toc-item list sections: $section
+fpm.toc-item list footer_nav:
+fpm.toc-item list sub_sections:
+integer menu_left: 
+integer menu_right:
+optional string logo_width: 
+optional string logo_height: 
+string link_style: 
+ftd.color background:  
+ftd.resizing width: 
+ftd.color text_color:
+ftd.color active_text_color:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+optional string font-family:
+optional string login_btn_txt:
+optional string sign_in_txt:  
+boolean login_button:
+
+-- ftd.column:
+width.calc: 100% - 48px
+height.calc: 100vh - 0px
+anchor: window
+left.px: 0
+top.px: 0
+overflow-y: auto
+padding-top.px: 20
+padding-horizontal.px: 24
+background.solid: $inherited.colors.background.step-1
+;; z-index: 4 -- TODO FTD 0.3
+
+-- ftd.row:
+width: fill-container
+;; id: first-container -- TODO FTD 0.3
+
+-- ftd.column:
+if: { !menu_mobile.parent_brand }
+width: fill-container
+border-bottom.px: 1
+border-color: $inherited.colors.border
+;; id: logo-container -- TODO FTD 0.3
+padding-bottom.px: 24
+
+-- ftd.column:
+if: { !menu_mobile.parent_brand }
+
+-- ftd.text: $menu_mobile.brand_caption
+role: $inherited.types.fine-print
+color: $inherited.colors.text-strong
+padding-bottom.px: 8
+
+-- ftd.image:
+src: $menu_mobile.site_logo
+
+-- end: ftd.column
+
+-- ftd.row:
+padding-top.px: 24
+
+-- ps.switcher:
+products: $products
+
+-- end: ftd.row
+
+-- ftd.column:
+if: { !is_empty(menu_mobile.menu_mobile.sections) }
+width: fill-container
+border-bottom.px if { menu_mobile.login_button }: 1
+border-color: $inherited.colors.border
+padding-bottom.px: 24
+
+-- header_item-mobile: $obj.title
+$loop$: $menu_mobile.sections as $obj
+children: $obj.children 
+is-active: $obj.is-active
+link: $obj.url
+text_color: $menu_mobile.text_color
+active_text_color: $menu_mobile.active_text_color
+current_url: $menu_mobile.current_url
+link_style: $menu_mobile.link_style
+menu_hover_bg: $menu_mobile.menu_hover_bg
+menu_left: $menu_mobile.menu_left
+menu_bg: $menu_mobile.menu_bg 
+menu_link: $menu_mobile.menu_link
+menu_link_active: $menu_mobile.menu_link_active
+menu_border: $menu_mobile.menu_border
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+if: { menu_mobile.login_button }
+border-bottom.px if { !menu_mobile.parent_brand }: 1
+border-color: $inherited.colors.border
+padding-vertical.px: 24
+
+-- login_signup:
+login: $menu_mobile.login_btn_txt
+sign-in: $menu_mobile.sign_in_txt
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container
+padding-vertical.px: 24
+if: { !menu_mobile.parent_brand }
+
+-- footer:
+url: $obj.url
+title: $obj.title
+$loop$: $menu_mobile.footer_list as $obj
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: menu_mobile
+
+
+
+
+
+
+
+
+
+
 -- component header_desktop:
 ;; ps.product_data list products:
 optional ftd.image-src site_logo:
@@ -652,7 +826,7 @@ boolean open: false
 
 -- ftd.row:
 if: {header_toc_item_mobile_view.link != NULL}
-width: fill-container-container
+width: fill-container
 
 -- ftd.image:
 ;; if: {header_toc_item_mobile_view.icon != NULL} -- TODO FTD 0.3
@@ -676,7 +850,7 @@ margin-left.px: 10
 
 -- ftd.row:
 if: {header_toc_item_mobile_view.link != NULL}
-width: fill-container-container
+width: fill-container
 
 -- ftd.image:
 if: {header_toc_item_mobile_view.icon != NULL}
@@ -760,11 +934,11 @@ ftd.image-src font-icon:
 boolean is-active: false
 
 -- ftd.column:
-width: fill-container-container
+width: fill-container
 
 -- ftd.row:
 if: { l_mobile.url != NULL }
-width: fill-container-container
+width: fill-container
 
 -- ftd.image:
 ;; if: { l_mobile.font-icon != NULL } -- TODO FTD 0.3
@@ -780,13 +954,13 @@ color if { l_mobile.is-active }: $inherited.colors.cta-primary.base
 padding-vertical.px: 8
 padding-horizontal.px: 10
 role: $inherited.types.copy-relaxed
-width: fill-container-container
+width: fill-container
 
 -- end: ftd.row
 
 -- ftd.row:
 if: { l_mobile.url == NULL }
-width: fill-container-container
+width: fill-container
 spacing.px: 8
 
 -- ftd.image:
@@ -801,7 +975,7 @@ color: $inherited.colors.background.step-2
 padding-vertical.px: 8
 padding-horizontal.px: 10
 role: $inherited.types.copy-relaxed
-width: fill-container-container
+width: fill-container
 
 
 -- end: ftd.row
@@ -854,39 +1028,6 @@ margin-left.px: 10
 -- end: ftd.column
 
 -- end: header-item-mobile-view
-
-
-
-
-
-
-
-
-
-
--- component mobile_sidebar:
-
--- ftd.column:
-anchor: window
-top.px: 0
-bottom.px: 0
-left.px: 0
-right.px: 0
-background.solid:  $inherited.colors.background.overlay
-;; z-index: 1 -- TODO FTD 0.3
-;; $on-click$: toggle $sidebar_open -- TODO FTD 0.3
-
--- ftd.image:
-src: $assets.files.static.header.cross.svg
-height: 24
-width: hug-content
-anchor: window
-right.px: 16
-top.px: 20
-
--- end: ftd.column
-
--- end: mobile_sidebar
 
 
 
@@ -1172,153 +1313,12 @@ menu_hover_bg: $header-mobile.menu_hover_bg
 
 
 
--- componenet menu_mobile:
-ps.product_data list products:
-optional ftd.image-src site_logo:
-ftd.image-src menu_icon:
-string site_url: 
-string current_url:
-optional string brand_caption:
-optional string site_name:
-boolean parent_brand: 
-fpm.toc-item list sections: $section
-fpm.toc-item list footer_nav:
-fpm.toc-item list sub_sections:
-integer menu_left: 
-integer menu_right:
-optional string logo_width: 
-optional string logo_height: 
-string link_style: 
-ftd.color background:  
-ftd.resizing width: 
-ftd.color text_color:
-ftd.color active_text_color:
-ftd.color menu_bg:
-ftd.color menu_hover_bg:
-ftd.color menu_link:
-ftd.color menu_link_active:
-ftd.color menu_border:
-optional string font-family:
-optional string login_btn_txt:
-optional string sign_in_txt:  
-boolean login_button:
-
--- ftd.column:
-width.calc: 100% - 48px
-height.calc: 100vh - 0px
-anchor: window
-left.px: 0
-top.px: 0
-overflow-y: auto
-padding-top.px: 20
-padding-horizontal.px: 24
-background.solid: $inherited.colors.background.step-1
-;; z-index: 4 -- TODO FTD 0.3
-
--- ftd.row:
-width: fill-container-container
-;; id: first-container -- TODO FTD 0.3
-
--- ftd.column:
-if: { !menu_mobile.parent_brand }
-width: fill-container-container
-border-bottom.px: 1
-border-color: $inherited.colors.border
-;; id: logo-container -- TODO FTD 0.3
-padding-bottom.px: 24
-
--- ftd.column:
-if: { !menu_mobile.parent_brand }
-
--- ftd.text: $menu_mobile.brand_caption
-role: $inherited.types.fine-print
-color: $inherited.colors.text-strong
-padding-bottom.px: 8
-
--- ftd.image:
-src: $menu_mobile.site_logo
-
--- end: ftd.column
-
--- ftd.row:
-padding-top.px: 24
-
--- ps.switcher:
-products: $products
-
--- end: ftd.row
-
--- ftd.column:
-if: { !is_empty(menu_mobile.menu_mobile.sections) }
-width: fill-container-container
-border-bottom.px if { menu_mobile.login_button }: 1
-border-color: $inherited.colors.border
-padding-bottom.px: 24
-
--- header_item-mobile: $obj.title
-$loop$: $menu_mobile.sections as $obj
-children: $obj.children 
-is-active: $obj.is-active
-link: $obj.url
-text_color: $menu_mobile.text_color
-active_text_color: $menu_mobile.active_text_color
-current_url: $menu_mobile.current_url
-link_style: $menu_mobile.link_style
-menu_hover_bg: $menu_mobile.menu_hover_bg
-menu_left: $menu_mobile.menu_left
-menu_bg: $menu_mobile.menu_bg 
-menu_link: $menu_mobile.menu_link
-menu_link_active: $menu_mobile.menu_link_active
-menu_border: $menu_mobile.menu_border
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container-container
-if: { menu_mobile.login_button }
-border-bottom.px if { !menu_mobile.parent_brand }: 1
-border-color: $inherited.colors.border
-padding-vertical.px: 24
-
--- login_signup:
-login: $menu_mobile.login_btn_txt
-sign-in: $menu_mobile.sign_in_txt
-
--- end: ftd.column
-
--- ftd.column:
-width: fill-container-container
-padding-vertical.px: 24
-if: { !menu_mobile.parent_brand }
-
--- footer:
-url: $obj.url
-title: $obj.title
-$loop$: $menu_mobile.footer_list as $obj
-
--- end: ftd.column
-
--- end: ftd.row
-
--- end: ftd.column
-
--- end: menu_mobile
-
-
-
-
-
-
-
-
-
-
 -- component footer:
 caption title:
 string url:
 
 -- ftd.column:
-width: fill-container-container
+width: fill-container
 
 -- ftd.text: $footer.title
 role: $inherited.types.copy-relaxed
@@ -1375,13 +1375,13 @@ string link_style:
 boolean open: false
 
 -- ftd.column: 
-width: fill-container-container
+width: fill-container
 align-self: start
 ;; $on-click$: toggle $open -- TODO FTD 0.3
 ;; $on-click-outside$: $open = false -- TODO FTD 0.3
 
 -- ftd.row:
-width: fill-container-container
+width: fill-container
 
 -- ftd.text: $header-item-mobile.title 
 if: { !is_empty(header-item-mobile.sections) }
@@ -1427,7 +1427,7 @@ fpm.toc-item list sub_sections:
 -- ftd.row:
 
 -- ftd.row:
-width: fill-container-container
+width: fill-container
 
 -- section-scroll:
 title: $obj.title
@@ -1519,7 +1519,7 @@ ftd.color menu_link:
 ftd.color menu_link_active:
 
 -- ftd.column:
-width: fill-container-container
+width: fill-container
 
 -- ftd.text: $links.obj.title
 if: $obj.url is not null
