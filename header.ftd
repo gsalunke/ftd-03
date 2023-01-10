@@ -290,7 +290,7 @@ string current_url:
 optional string brand_caption:
 optional string site_name:
 boolean parent_brand: 
-fpm.toc-item list sections: $section
+fpm.toc-item list sections:
 fpm.toc-item list footer_nav:
 fpm.toc-item list sub_sections:
 integer menu_left: 
