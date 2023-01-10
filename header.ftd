@@ -1,0 +1,1824 @@
+-- import: gsalunke.github.io/ftd-03/assets
+-- import: fpm
+-- import: fpm/processors as pr
+
+-- boolean show-section: true
+
+-- boolean sidebar_open: false
+
+-- boolean login-button: false
+
+-- boolean pricing-cta: false
+
+-- string site-url: index.html
+
+-- string site-name: Doc Site
+
+-- ftd.image-src site-logo: 
+light: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+dark: https://www.fifthtry.com/-/fifthtry.com/assets/images/logo-fifthtry-dark.svg
+
+-- fpm.sitemap-data sitemap:
+$processor$: pr.sitemap
+
+
+-- fpm.toc-item list sections:
+
+-- fpm.toc-item list sub-sections:
+
+-- fpm.toc-item list extra:
+
+-- fpm.toc-item list toc:
+
+-- fpm.toc-item list footer-toc:
+
+
+
+
+
+-- header:
+login-button: $login-button
+pricing-cta: $pricing-cta
+login-btn-txt: Login
+sign-in-txt:  Sign-in
+sections: $sitemap.sections
+sub-sections: $sitemap.sub-sections
+current-section: $sitemap.current-section
+current-subsection: $sitemap.current-subsection
+current-page: $sitemap.current-page
+extra: $extra
+site-logo: $site-logo
+site-url: $site-url
+site-name: $site-name
+logo-height: 38
+menu-right: 0
+menu-left: -88
+current-url: /
+menu-icon: $assets.files.hamburger-dark.svg
+
+
+
+
+
+
+
+
+-- component header:
+optional ftd.image_src site_logo:
+optional ftd.image_src brand_site_logo:
+string site_url: /
+optional string site_name:
+optional string brand_site_url:
+optional string brand_site_name:
+optional boolean parent_brand: 
+boolean pricing_cta: false
+ftd.image-src menu_icon: $assets.files.static.header.hamburger-dark.svg
+string current_url: /payments/
+fpm.toc-item list sections: 
+fpm.toc-item list sub_sections: 
+fpm.toc-item list toc: 
+optional fpm.toc-item current_section: 
+optional fpm.toc-item current_subsection: 
+optional fpm.toc-item current_page: 
+fpm.toc-item list footer_nav: 
+fpm.toc-item list extra: 
+;; ps.product_data list products: 
+integer menu_left: 10
+integer menu_right: 10
+optional string logo_width: 
+optional string logo_height: 26
+string link_style: regular
+ftd.color background: $inherited.colors.background.base
+ftd.color text_color: $inherited.colors.text-strong
+ftd.color active_text_color: $inherited.colors.text
+ftd.color menu_bg: $inherited.colors.background.base
+ftd.color menu_hover_bg: $inherited.colors.background.base
+ftd.color menu_link: $inherited.colors.text
+ftd.color menu_link_active: $inherited.colors.text
+ftd.color menu_border: $inherited.colors.text
+optional string nav_title: 
+optional string nav_title_url:
+optional string nav_sub_title:
+optional string nav_sub_title_url:
+optional string nav_sub_section_title:
+optional string nav_sub_section_title_url:
+optional string login_btn_txt: Login
+optional string sign_in_txt: 
+boolean login_button: false
+string width: 100
+boolean include_dark_mode_switcher: true
+boolean include_language_switcher: true
+optional string brand_caption:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.column:
+width: fill-container
+background.solid: $header.background
+;; z-index: 10 -- TODO FTD 0.3
+
+-- mobile_sidebar:
+if: { sidebar_open }
+
+-- ftd.text: 
+text: sometext
+
+-- end: ftd.column
+
+-- menu_mobile:
+if: {sidebar_open}
+parent_brand: $header.parent_brand
+site_logo: $header.site_logo
+menu_icon: $header.menu_icon
+brand_caption: $header.brand_caption
+site_url: $header.site_url 
+site_name: $header.site_name
+current_url: $header.current_url
+sections: $header.sections
+sub_sections: $header.sub_sections 
+footer_nav: $header.footer_list
+menu_left: $header.menu_left 
+menu_right: $header.menu_right
+logo_width: $header.logo_width 
+logo_height: $header.logo_height 
+link_style: $header.link_style 
+background: $header.background  
+text_color: $header.text_color 
+active_text_color: $header.active_text_color
+width: $header.width
+menu_bg: $header.menu_bg
+menu_hover_bg: $header.menu_hover_bg
+menu_link: $header.menu_link 
+menu_link_active: $header.menu_link_active
+menu_border: $header.menu_border
+login_button: $header.login_button
+login_btn_txt: $header.login_btn_txt
+sign_in_txt: $header.sign_in_txt
+products: $header.products
+
+-- header_desktop:
+if: { ftd.device == "desktop" }
+site_logo: $header.site_logo
+site_url: $header.site_url 
+site_name: $header.site_name
+current_url: $header.current_url
+parent_brand: $header.parent_brand
+sections: $header.sections
+brand_caption: $header.brand_caption
+pricing_cta: $header.pricing_cta
+current_section: $header.current_section
+current_page: $header.current_page
+current_subsection: $header.current_subsection
+sub_sections: $header.sub_sections 
+include_dark_mode_switcher: $header.include_dark_mode_switcher
+include_language_switcher: $header.include_language_switcher
+menu_left: $header.menu_left 
+menu_right: $header.menu_right
+logo_width: $header.logo_width 
+logo_height: $header.logo_height 
+link_style: $header.link_style 
+background: $header.background  
+extra: $header.extra
+text_color: $header.text_color 
+active_text_color: $header.active_text_color
+width: $header.width
+menu_bg: $header.menu_bg
+menu_hover_bg: $header.menu_hover_bg
+menu_link: $header.menu_link 
+menu_link_active: $header.menu_link_active
+menu_border: $header.menu_border
+login_button: $header.login_button
+login_btn_txt: $header.login_btn_txt
+sign_in_txt: $header.sign_in_txt 
+nav_title: $header.nav_title
+nav_title_url: $header.nav_title_url
+nav_sub_title: $header.nav_sub_title
+nav_sub_title_url: $header.nav_sub_title_url
+nav_sub_section_title: $header.nav_sub_section_title
+nav_sub_section_title_url: $header.nav_sub_section_title
+products: $header.products
+
+-- header-mobile:
+if: { ftd.device == "mobile" }
+site_logo: $header.site_logo
+pricing_cta: $header.pricing_cta
+brand_site_logo: $header.brand_site_logo
+brand_site_name: $header.brand_site_name
+brand_site_url: $header.brand_site_url
+parent_brand: $header.parent_brand
+menu_icon: $header.menu_icon
+site_url: $header.site_url 
+site_name: $header.site_name
+current_url: $header.current_url
+sections: $header.sections
+sub_sections: $header.sub_sections
+toc: $header.toc
+current_section: $header.current_section
+current_page: $header.current_page
+current_subsection: $header.current_subsection
+include_dark_mode_switcher: $header.include_dark_mode_switcher
+include_language_switcher: $header.include_language_switcher
+menu_border: $header.menu_border
+menu_bg: $header.menu_bg
+menu_hover_bg: $header.menu_hover_bg
+menu_left: $header.menu_left 
+menu_right: $header.menu_right
+menu_link: $header.menu_link 
+menu_link_active: $header.menu_link_active
+logo_width: $header.logo_width 
+logo_height: $header.logo_height 
+link_style: $header.link_style 
+background: $header.background  
+text_color: $header.text_color 
+active_text_color: $header.active_text_color
+width: $header.width
+products: $header.products
+
+-- end: ftd.column
+
+-- end: header
+
+
+
+
+
+
+
+
+
+
+-- component header_desktop:
+;; ps.product_data list products:
+optional ftd.image-src site_logo:
+string site_url: 
+string current_url:
+optional string site_name:
+optional string brand_caption:
+boolean parent_brand:
+fpm.toc-item list sections:
+optional fpm.toc-item current_subsection: 
+fpm.toc-item list sub_sections:
+boolean pricing_cta:
+optional fpm.toc-item current_section: 
+optional fpm.toc-item current_page:
+boolean include_dark_mode_switcher:
+boolean include_language_switcher:
+fpm.toc-item list extra:
+integer menu_left: 
+integer menu_right:
+optional string logo_width: 
+optional string logo_height: 
+string link_style:
+optional string login_btn_txt:
+optional string sign_in_txt: 
+ftd.color background:  
+ftd.color text_color:
+ftd.color active_text_color:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+boolean login_button:
+string width: 
+optional string nav_title: 
+optional string nav_title_url:
+optional string nav_sub_title:
+optional string nav_sub_title_url:
+optional string nav_sub_section_title:
+optional string nav_sub_section_title_url:
+
+-- ftd.column:
+width.fixed.percent: $header_desktop.width
+
+-- ftd.row:
+width.fixed.percent: 100
+padding-vertical.px: 24
+padding-horizontal.px: 48
+
+-- ftd.row:
+;; id: left-side-top -- TODO FTD 0.3
+align-self: left
+width.fixed.percent: 100
+
+-- ftd.column:
+;; id: logo-text-container -- TODO FTD 0.3
+
+-- ftd.column:
+if: {!header_desktop.parent_brand}
+;; id: iddd -- TODO FTD 0.3
+
+-- ftd.text:
+text: $header_desktop.brand_caption
+color: $inherited.colors.text-strong
+role: $inherited.types.fine-print
+
+-- end: ftd.column
+
+-- ftd.row:
+link: $header_desktop.site_url
+
+-- ftd.image:
+if: {header_desktop.site_logo != NULL}
+src: $header_desktop.site_logo
+width.fixed.px: $header_desktop.logo_width
+height.fixed.px: $header_desktop.logo_height
+margin-top.px: 8
+align-self: center
+
+-- ftd.text: $site_name
+if: {$header_desktop.site_name !== NULL}
+role: $inherited.types.heading-medium
+color: $inherited.colors.text-strong
+align-self: center
+margin-left.px if {$header_desktop.site_logo != NULL}: 16
+white-space: nowrap
+
+-- fallback_title:
+if: {$header_desktop.site_logo = NULL}
+site_name: $header_desktop.site_name
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- ftd.row:
+width.fixed.percent: 100
+border-left.px: 1
+padding-left.px: 20
+margin-left.px: 20
+border-color: $inherited.colors.border
+
+-- ps.switcher:
+products: $header_desktop.products
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.row:
+;; id: right-side-top -- TODO FTD 0.3
+align-self: right
+padding-top.px: 12
+;; z-index: 1000 -- TODO FTD 0.3
+
+-- header_item: $obj.title
+$loop$: $header_desktop.sections as $obj
+link: $obj.url
+is-active: $obj.is-active
+text_color: $header_desktop.text_color
+active_text_color: $header_desktop.active_text_color
+current_url: $header_desktop.current_url
+menu_right: $header_desktop.menu_right
+menu_bg: $header_desktop.menu_bg 
+menu_hover_bg: $header_desktop.menu_hover_bg
+menu_link: $header_desktop.menu_link
+menu_link_active: $header_desktop.menu_link_active
+menu_border: $header_desktop.menu_border
+icon: $obj.font-icon
+
+-- pricing-cta-text: Try for Free
+if: {header_desktop.pricing_cta}
+
+-- ftd.row:
+if: {header_desktop.login_button}
+
+-- login_signup:
+login: $header_desktop.login_btn_txt
+sign-in: $header_desktop.sign_in_txt
+
+-- end: ftd.row
+
+-- ftd.row:
+width.fixed.percent: 100
+background.solid: $inherited.colors.background.step-1
+padding-horizontal.px: 48
+
+-- ftd.row:
+width.fixed.percent: 100
+;; id: bottom-row -- TODO FTD 0.3
+
+-- ftd.column:
+if: {header_desktop.current_section != NULL}
+width.fixed.percent: 100
+padding-vertical.px: 24
+
+-- ftd.text: $header_desktop.current_section.title
+if: {header_desktop.current_section.title != NULL}
+role: $inherited.types.heading-small
+color: $inherited.colors.text-strong
+link: $header_desktop.current_section.url
+padding-bottom.px: 8
+
+-- ftd.row:
+width.fixed.percent: 100
+;; id: selection-container -- TODO FTD 0.3
+
+-- ftd.text: $header_desktop.current_subsection.title
+if: {header_desktop.current_subsection.title != NULL}
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+link: $header_desktop.current_subsection.url
+white-space: nowrap
+margin-right.px: 8
+
+-- ftd.row:
+if: {header_desktop.current_subsection.title != NULL}
+
+-- ftd.row:
+if: {header_desktop.current_page.title != NULL}
+
+-- ftd.text: ->
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+white-space: nowrap
+margin-right.px: 8
+
+-- end: ftd.row
+
+-- end: ftd.row 
+
+-- ftd.text: $header_desktop.current_page.title 
+if: {header_desktop.current_page.title != NULL}
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+link: $header_desktop.current_page.url 
+white-space: nowrap
+margin-right.px: 8
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- ftd.column:
+;; id: left-side -- TODO FTD 0.3
+width.fixed.percent: 100
+align-self: right
+padding-vertical.px if {$header_desktop.sub_sections != NULL}: 24
+margin-top.px if {header_desktop.current_subsection.title != NULL}: 16
+margin-top.px if {header_desktop.current_section.title != NULL}: 8
+
+-- ftd.row:
+width: hug-content
+align-self: right
+
+-- header_item: $obj.title
+$loop$: $header_desktop.sub_sections as $obj
+is-active: $obj.is-active
+link: $obj.url
+text_color: $header_desktop.text_color
+active_text_color: $header_desktop.active_text_color
+current_url: $header_desktop.current_url
+menu_right: $header_desktop.menu_right
+menu_left: $header_desktop.menu_left
+menu_bg: $header_desktop.menu_bg 
+menu_link: $header_desktop.menu_link
+menu_link_active: $header_desktop.menu_link_active
+menu_border: $header_desktop.menu_border
+menu_hover_bg: $header_desktop.menu_hover_bg
+icon: $obj.font-icon
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: header_desktop
+
+
+
+
+
+
+
+
+-- component site_url:
+caption title:
+
+-- ftd.text: $site_url.title
+role: $inherited.types.copy-relaxed
+align-self: center
+white-space: nowrap
+
+-- end: site_url
+
+
+
+
+
+
+
+
+
+
+-- component fallback_title:
+optional string site_name:
+
+-- ftd.row:
+
+-- ftd.text: LOGO
+if: { fallback_title.site_name == NULL }
+role: $inherited.types.heading-large
+color: $inherited.colors.text-strong
+
+-- end: ftd.row
+
+-- end: fallback_title
+
+
+
+
+
+
+
+
+
+
+-- component header_top_right_item:
+caption title:
+string link:
+optional ftd.color text_color:
+optional ftd.color active_text_color:
+optional string current_url:
+
+-- ftd.text: $header_top_right_item.title
+role: $inherited.types.copy-relaxed
+link: $header_top_right_item.link
+align-self: center
+white-space: nowrap
+padding-horizontal.px: 10
+color: $header_top_right_item.text_color
+color if {header_top_right_item.current_url == header_top_right_item.link}: $header_top_right_item.active_text_color
+border-bottom-width.px if {header_top_right_item.current_url == header_top_right_item.link}: 2
+border-color if {header_top_right_item.current_url == header_top_right_item.link}: $header_top_right_item.active_text_color
+
+-- end: header_top_right_item
+
+
+
+
+
+
+
+
+
+
+-- component header_item:
+caption title:
+ftd.image-src icon:
+;; optional ftd.image-src icon: -- TODO FTD 0.3
+optional string link:
+ftd.color text_color:
+boolean is_active: 
+ftd.color active_text_color:
+optional string current_url:
+optional integer menu_right:
+optional integer menu_left:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+boolean open: false
+
+-- ftd.row: 
+;; $on-click$: toggle $header_item.open -- TODO FTD 0.3
+;; $on-click-outside$: $header_item.open = false -- TODO FTD 0.3
+
+-- ftd.image:
+;; if: {header_item.icon != NULL} -- TODO FTD 0.3
+src: $header_item.icon
+max-height.fixed.px: 20
+min-height.fixed.px: 20
+
+-- ftd.text: $header_item.title
+role: $inherited.types.copy-relaxed
+link: $header_item.link
+white-space: nowrap
+padding-left.px: 10
+color: $header_item.text_color
+color if {header_item.is_active}: $inherited.colors.text
+border-bottom-width.px if {header_item.current_url == header_item.link}: 2
+border-color if {header_item.current_url == header_item.link}: $header_item.active_text_color
+margin-left.px: 10
+
+-- ftd.text: $header_item.title
+if: {header_item.link == NULL}
+role: $inherited.types.copy-relaxed
+white-space: nowrap
+padding-left.px: 10
+color: $header_item.text_color
+color if {header_item.is_active}: $inherited.colors.text
+margin-left.px: 20
+;; cursor: auto -- TODO FTD 0.3
+
+-- end: ftd.row
+
+-- end: header_item
+
+
+
+
+
+
+
+
+
+
+-- component header_toc_item_mobile_view:
+caption title:
+optional string link:
+ftd.color text_color:
+toc-item list children: 
+optional ftd.image-src icon:
+boolean is_active: 
+ftd.color active_text_color:
+optional string current_url:
+optional integer menu_right:
+optional integer menu_left:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+boolean open: false
+;; $on-click$: toggle $open -- TODO FTD 0.3
+;; $on-click-outside$: $open = false -- TODO FTD 0.3
+
+-- ftd.column: 
+
+-- ftd.row:
+if: {header_toc_item_mobile_view.link != NULL}
+width: fill-container-container
+
+-- ftd.image:
+;; if: {header_toc_item_mobile_view.icon != NULL} -- TODO FTD 0.3
+src: $header_toc_item_mobile_view.icon
+height.fixed.px: 14
+width: hug-content
+align-self: center
+
+-- ftd.text: $header_toc_item_mobile_view.title
+role: $inherited.types.copy-relaxed
+link: $header_toc_item_mobile_view.link
+white-space: nowrap
+padding-left.px: 10
+color: $inherited.colors.text
+color if {header_toc_item_mobile_view.is_active}: $inherited.colors.cta-primary.base
+border-bottom-width.px if {header_toc_item_mobile_view.current_url == header_toc_item_mobile_view.link}: 2
+border-color if {header_toc_item_mobile_view.current_url == header_toc_item_mobile_view.link}: $header_toc_item_mobile_view.active_text_color
+margin-left.px: 10
+
+-- end: ftd.row
+
+-- ftd.row:
+if: {header_toc_item_mobile_view.link != NULL}
+width: fill-container-container
+
+-- ftd.image:
+if: {header_toc_item_mobile_view.icon != NULL}
+src: $header_toc_item_mobile_view.icon
+height.fixed.px: 14
+width: hug-content
+align-self: center
+
+-- ftd.text: $header_toc_item_mobile_view.title
+if: {header_toc_item_mobile_view.link != NULL}
+role: $inherited.types.copy-relaxed
+white-space: nowrap
+padding-left.px: 10
+color: $inherited.colors.text
+color if {header_toc_item_mobile_view.is_active}: $inherited.colors.cta-primary.base
+
+-- end: ftd.row
+
+-- ftd.column:
+if: { is_empty(header_toc_item_mobile_view.children) }
+padding-bottom.px: 15
+
+-- show_children_mobile:
+if: { !is_empty(header_toc_item_mobile_view.children) }
+children: $header_toc_item_mobile_view.children
+menu_link: $header_toc_item_mobile_view.menu_link
+menu_link_active: $header_toc_item_mobile_view.menu_link_active
+menu_bg: $header_toc_item_mobile_view.menu_bg
+menu_border: $header_toc_item_mobile_view.menu_border
+menu_hover_bg: $header_toc_item_mobile_view.menu_hover_bg
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: header_toc_item_mobile_view
+
+
+
+
+
+
+
+
+
+
+-- component show_children_mobile:
+toc-item list children:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+
+-- ftd.column:
+if: { !is_empty(show_children_mobile.children) }
+padding.px: 5
+padding-left.px: 15
+
+-- l_mobile:
+title: $obj.title
+url: $obj.url
+font-icon: $obj.font-icon
+is-active: $obj.is-active
+$loop$: $show_children_mobile.children as $obj
+
+-- end: ftd.column
+
+-- end: show_children_mobile
+
+
+
+
+
+
+
+-- component l_mobile:
+caption title:
+string url:
+ftd.image-src font-icon:
+boolean is-active: false
+
+-- ftd.column:
+width: fill-container-container
+
+-- ftd.row:
+if: { l_mobile.url != NULL }
+width: fill-container-container
+
+-- ftd.image:
+;; if: { l_mobile.font-icon != NULL } -- TODO FTD 0.3
+src: $l_mobile.font-icon
+height.fixed.px: 14
+width: hug-content
+align-self: center
+
+-- ftd.text: $l_mobile.title
+link: $l_mobile.url
+color: $inherited.colors.text
+color if { l_mobile.is-active }: $inherited.colors.cta-primary.base
+padding-vertical.px: 8
+padding-horizontal.px: 10
+role: $inherited.types.copy-relaxed
+width: fill-container-container
+
+-- end: ftd.row
+
+-- ftd.row:
+if: { l_mobile.url == NULL }
+width: fill-container-container
+spacing.px: 8
+
+-- ftd.image:
+;; if: { l_mobile.font-icon != NULL } -- TODO FTD 0.3
+src: $l_mobile.font-icon
+height.fixed.px: 14
+width: hug-content
+align-self: center
+
+-- ftd.text: $l_mobile.title
+color: $inherited.colors.background.step-2
+padding-vertical.px: 8
+padding-horizontal.px: 10
+role: $inherited.types.copy-relaxed
+width: fill-container-container
+
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: l_mobile
+
+
+
+
+
+
+
+
+
+
+-- component header-item-mobile-view: 
+caption title:
+optional string link:
+ftd.color text_color:
+fpm.toc-item list children:
+;; boolean is-active: 
+ftd.color active_text_color:
+optional string current_url:
+optional integer menu_right:
+optional integer menu_left:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+boolean open: false
+;; $on-click$: toggle $open -- TODO FTD 0.3
+;; $on-click-outside$: $open = false -- TODO FTD 0.3
+
+-- ftd.column:
+
+-- ftd.text: $header-item-mobile-view.title
+role: $inherited.types.fine-print
+link: $header-item-mobile-view.link
+white-space: nowrap
+padding-left.px: 10
+color: $header-item-mobile-view.text_color
+;; color if { header-item-mobile-view.is-active }: $inherited.colors.cta-primary.base
+border-bottom if { header-item-mobile-view.current_url == header-item-mobile-view.link }: 2
+border-color if { header-item-mobile-view.current_url == header-item-mobile-view.link }: $header-item-mobile-view.active_text_color
+margin-left.px: 10
+
+-- end: ftd.column
+
+-- end: header-item-mobile-view
+
+
+
+
+
+
+
+
+
+
+-- component mobile_sidebar:
+
+-- ftd.column:
+anchor: window
+top.px: 0
+bottom.px: 0
+left.px: 0
+right.px: 0
+background.solid:  $inherited.colors.background.overlay
+;; z-index: 1 -- TODO FTD 0.3
+;; $on-click$: toggle $sidebar_open -- TODO FTD 0.3
+
+-- ftd.image:
+src: $assets.files.static.header.cross.svg
+height: 24
+width: hug-content
+anchor: window
+right.px: 16
+top.px: 20
+
+-- end: ftd.column
+
+-- end: mobile_sidebar
+
+
+
+
+
+
+
+
+
+
+-- component header-mobile:
+;; ps.product_data list products: $ps.product
+ftd.image-src menu_icon:
+optional ftd.image-src site_logo:
+optional ftd.image-src brand_site_logo:
+optional string brand_site_name:
+optional boolean parent_brand:
+string site_url: 
+string current_url:
+optional string brand_site_url:
+optional string site_name:
+fpm.toc-item list sections:
+fpm.toc-item list sub_sections:
+fpm.toc-item list toc:
+optional fpm.toc-item current_subsection: 
+optional fpm.toc-item current_section: 
+optional fpm.toc-item current_page:
+boolean include_dark_mode_switcher:
+boolean include_language_switcher:
+integer menu_left: 
+integer menu_right:
+integer logo_width: 24
+integer logo_height: 40
+string link_style: 
+ftd.color background:  
+ftd.color text_color: 
+ftd.color active_text_color:
+ftd.color menu_hover_bg:
+ftd.color menu_border:
+ftd.color menu_bg: 
+ftd.color menu_link: 
+ftd.color menu_link_active: 
+ftd.resizing width: 
+boolean pricing_cta:
+
+-- ftd.column: 
+width: $header-mobile.width
+background.solid: $header-mobile.background
+;; $on-click-outside$: $show-section = false -- TODO FTD 0.3
+
+-- ftd.row:
+;; id: left-side -- TODO FTD 0.3
+padding-horizontal.px: 16
+padding-vertical.px: 16
+width: fill-container
+
+-- ftd.row:
+width: fill-container
+;; id: sidelogo-container -- TODO FTD 0.3
+spacing.px: 16
+
+-- ftd.image:
+src: $header-mobile.menu_icon
+width.fixed.px: 24
+;; $on-click$: toggle $header-mobile.sidebar_open -- TODO FTD 0.3
+align-self: center
+
+-- ftd.row:
+if: {header-mobile.parent_brand}
+spacing.px: 8
+link: $header-mobile.site_url
+
+-- ftd.image:
+;; if: { header-mobile.site_logo != NULL } -- TODO FTD 0.3
+src: $header-mobile.site_logo
+width.fixed.px: $header-mobile.logo_width
+height.fixed.px: $header-mobile.logo_height
+
+-- ftd.text: $header-mobile.site_name
+if: { header-mobile.site_name != NULL }
+role: $inherited.types.heading-medium
+color: $inherited.colors.text-strong
+
+-- fallback_title:
+if: { header-mobile.site_logo == NULL }
+site_name: $header-mobile.site_name
+
+-- end: ftd.row
+
+-- ftd.row:
+if: { !header-mobile.parent_brand }
+spacing.px: 15
+link: $header-mobile.brand_site_url
+
+-- ftd.image:
+;; if: { header-mobile.brand_site_logo != NULL } -- TODO FTD 0.3
+src: $header-mobile.brand_site_logo
+width: hug-content
+height.fixed.px: 36
+
+-- ftd.text: $header-mobile.brand_site_name
+if: { header-mobile.brand_site_name != NULL }
+role: $inherited.types.copy-relaxed
+color: $inherited.colors.text-strong
+
+-- fallback_title:
+if: { header-mobile.brand_site_name != NULL }
+site_name: $header-mobile.brand_site_name
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.row:
+margin-top.px: 8
+
+-- pricing-cta-text: Try for Free
+if: { header-mobile.pricing_cta }
+
+-- end: ftd.row
+
+-- ftd.row:
+;; if: { header-mobile.current_section != NULL }
+width: fill-container
+background.solid: $inherited.colors.background.step-1
+;; id: bottom-row -- TODO FTD 0.3
+
+-- ftd.row:
+width: hug-content
+
+-- ftd.text: $header-mobile.current_section.title
+if: { header-mobile.current_section != NULL }
+role: $inherited.types.label-small
+color: $inherited.colors.text
+link: $header-mobile.current_section.url
+background-color: $inherited.colors.cta-tertiary.base
+padding-vertical.px: 8
+padding-horizontal.px: 8
+width: fill-container
+white-space: nowrap
+
+-- end: ftd.row
+
+-- ftd.row:
+width: fill-container
+spacing.px: 8
+padding-top.px: 8
+overflow-x: auto
+
+-- header-item-mobile-view: $obj.title
+$loop$: $header-mobile.sub_sections as $obj
+children: $obj.children 
+;; is-active: $obj.is-active -- TODO FTD 0.3
+link: $obj.url
+text_color: $header-mobile.text_color
+active_text_color: $header-mobile.active_text_color
+current_url: $header-mobile.current_url
+menu_left: $header-mobile.menu_left
+menu_bg: $header-mobile.menu_bg 
+menu_link: $header-mobile.menu_link
+menu_link_active: $header-mobile.menu_link_active
+menu_border: $header-mobile.menu_border
+menu_hover_bg: $header-mobile.menu_hover_bg
+
+-- end: ftd.row
+
+-- ftd.row:
+width: fill-container
+background.solid: $inherited.colors.background.step-2
+;; id: change-container -- TODO FTD 0.3
+padding-horizontal.px: 20
+;; $on-click$: toggle $show-section  -- TODO FTD 0.3
+
+-- ftd.row:
+width: fill-container
+padding-vertical.px: 16
+spacing.px: 4
+;; id: selection-container -- TODO FTD 0.3
+
+-- ftd.text: $header-mobile.current_subsection.title
+if: { header-mobile.current_subsection != NULL }
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+white-space: nowrap
+
+-- ftd.row:
+if: { header-mobile.current_subsection != NULL }
+
+-- ftd.row:
+if: { header-mobile.current_page != NULL }
+
+-- ftd.text: ->
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+white-space: nowrap
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.text: $header-mobile.current_page.title 
+if:  { header-mobile.current_page != NULL }
+role: $inherited.types.label-small
+color: $inherited.colors.text-strong
+white-space: nowrap
+
+-- end: ftd.row
+
+-- ftd.row:
+align-self: end
+height: fill-container
+
+-- ftd.row:
+align-self: center
+width: fill-container
+
+-- ftd.image: 
+if: { !show-section }
+src: $assets.files.static.down-arrow-dark.svg
+height: hug-content
+width.fixed.px: 12
+
+-- ftd.image: 
+if:  { show-section }
+src: $assets.files.static.up-arrow-dark.svg
+width.fixed.px: 12
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- ftd.column: 
+if: { show-section }
+width: fill-container
+anchor: parent
+background.solid: $inherited.colors.background.step-1
+top.px: 32
+left.px: 0
+
+-- ftd.column:
+width: fill-container
+spacing.px: 8
+padding-vertical.px: 12
+padding-horizontal.px: 24
+overflow-x: auto
+
+-- header_toc_item_mobile_view: $obj.title
+$loop$: $header-mobile.toc as $obj
+children: $obj.children 
+;; is-active: $obj.is-active
+link: $obj.url
+text_color: $header-mobile.text_color
+active_text_color: $header-mobile.active_text_color
+current_url: $header-mobile.current_url
+icon: $obj.font-icon
+menu_left: $header-mobile.menu_left
+menu_bg: $header-mobile.menu_bg 
+menu_link: $header-mobile.menu_link
+menu_link_active: $header-mobile.menu_link_active
+menu_border: $header-mobile.menu_border
+menu_hover_bg: $header-mobile.menu_hover_bg
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: header-mobile
+
+
+
+
+
+
+
+
+
+
+-- componenet menu_mobile:
+ps.product_data list products:
+optional ftd.image-src site_logo:
+ftd.image-src menu_icon:
+string site_url: 
+string current_url:
+optional string brand_caption:
+optional string site_name:
+boolean parent_brand: 
+fpm.toc-item list sections: $section
+fpm.toc-item list footer_nav:
+fpm.toc-item list sub_sections:
+integer menu_left: 
+integer menu_right:
+optional string logo_width: 
+optional string logo_height: 
+string link_style: 
+ftd.color background:  
+ftd.resizing width: 
+ftd.color text_color:
+ftd.color active_text_color:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+optional string font-family:
+optional string login_btn_txt:
+optional string sign_in_txt:  
+boolean login_button:
+
+-- ftd.column:
+width.calc: 100% - 48px
+height.calc: 100vh - 0px
+anchor: window
+left.px: 0
+top.px: 0
+overflow-y: auto
+padding-top.px: 20
+padding-horizontal.px: 24
+background.solid: $inherited.colors.background.step-1
+;; z-index: 4 -- TODO FTD 0.3
+
+-- ftd.row:
+width: fill-container-container
+;; id: first-container -- TODO FTD 0.3
+
+-- ftd.column:
+if: { !menu_mobile.parent_brand }
+width: fill-container-container
+border-bottom.px: 1
+border-color: $inherited.colors.border
+;; id: logo-container -- TODO FTD 0.3
+padding-bottom.px: 24
+
+-- ftd.column:
+if: { !menu_mobile.parent_brand }
+
+-- ftd.text: $menu_mobile.brand_caption
+role: $inherited.types.fine-print
+color: $inherited.colors.text-strong
+padding-bottom.px: 8
+
+-- ftd.image:
+src: $menu_mobile.site_logo
+
+-- end: ftd.column
+
+-- ftd.row:
+padding-top.px: 24
+
+-- ps.switcher:
+products: $products
+
+-- end: ftd.row
+
+-- ftd.column:
+if: { !is_empty(menu_mobile.menu_mobile.sections) }
+width: fill-container-container
+border-bottom.px if { menu_mobile.login_button }: 1
+border-color: $inherited.colors.border
+padding-bottom.px: 24
+
+-- header_item-mobile: $obj.title
+$loop$: $menu_mobile.sections as $obj
+children: $obj.children 
+is-active: $obj.is-active
+link: $obj.url
+text_color: $menu_mobile.text_color
+active_text_color: $menu_mobile.active_text_color
+current_url: $menu_mobile.current_url
+link_style: $menu_mobile.link_style
+menu_hover_bg: $menu_mobile.menu_hover_bg
+menu_left: $menu_mobile.menu_left
+menu_bg: $menu_mobile.menu_bg 
+menu_link: $menu_mobile.menu_link
+menu_link_active: $menu_mobile.menu_link_active
+menu_border: $menu_mobile.menu_border
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container-container
+if: { menu_mobile.login_button }
+border-bottom.px if { !menu_mobile.parent_brand }: 1
+border-color: $inherited.colors.border
+padding-vertical.px: 24
+
+-- login_signup:
+login: $menu_mobile.login_btn_txt
+sign-in: $menu_mobile.sign_in_txt
+
+-- end: ftd.column
+
+-- ftd.column:
+width: fill-container-container
+padding-vertical.px: 24
+if: { !menu_mobile.parent_brand }
+
+-- footer:
+url: $obj.url
+title: $obj.title
+$loop$: $menu_mobile.footer_list as $obj
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: menu_mobile
+
+
+
+
+
+
+
+
+
+
+-- component footer:
+caption title:
+string url:
+
+-- ftd.column:
+width: fill-container-container
+
+-- ftd.text: $footer.title
+role: $inherited.types.copy-relaxed
+link: $footer.url
+color: $inherited.colors.cta-primary.base
+padding-bottom.px: 32
+
+-- end: ftd.column
+
+-- end: footer
+
+
+
+
+
+
+
+
+
+
+-- component site-link:
+caption title: 
+
+-- ftd.text: $site-link.title
+role: $inherited.types.copy-relaxed
+color: $inherited.colors.text
+align-self: center
+
+-- end: site-link
+
+
+
+
+
+
+
+
+-- component header-item-mobile:
+caption title:
+optional string link:
+fpm.toc-item list children:
+optional string current_url:
+optional integer menu_right:
+optional integer menu_left:
+boolean is-active:
+ftd.color text_color:
+ftd.color active_text_color:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+string link_style:
+boolean open: false
+
+-- ftd.column: 
+width: fill-container-container
+align-self: start
+;; $on-click$: toggle $open -- TODO FTD 0.3
+;; $on-click-outside$: $open = false -- TODO FTD 0.3
+
+-- ftd.row:
+width: fill-container-container
+
+-- ftd.text: $header-item-mobile.title 
+if: { !is_empty(header-item-mobile.sections) }
+role: $inherited.types.copy-relaxed
+link: $header-item-mobile.link
+color: $header-item-mobile.text_color
+color if { header-item-mobile.is-active }: $inherited.colors.cta-primary.base
+$on-click$: { header-item-mobile.show-section == true }
+padding-top.px: 24
+
+-- ftd.column:
+if: { is_empty(header-item-mobile.children) }
+padding-bottom.px: 15
+
+-- show-children-mobile:
+if: { !is_empty(header-item-mobile.children) }
+children: $header-item-mobile.children
+menu_link: $header-item-mobile.menu_link
+menu_link_active: $header-item-mobile.menu_link_active
+menu_bg: $header-item-mobile.menu_bg
+menu_border: $header-item-mobile.menu_border
+menu_hover_bg: $header-item-mobile.menu_hover_bg
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: header-item-mobile
+
+
+
+
+
+
+
+
+
+-- component section-scrollbar:
+fpm.toc-item list sub_sections:
+
+-- ftd.row:
+
+-- ftd.row:
+width: fill-container-container
+
+-- section-scroll:
+title: $obj.title
+link: $obj.url
+$loop$: $section-scrollbar.sub_sections as $obj
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: section-scrollbar
+
+
+
+
+
+
+
+
+
+-- component section-scroll:
+caption title:
+string link:
+
+-- ftd.row:
+
+-- ftd.text: $section-scroll.title
+link: $section-scroll.link
+
+-- end: ftd.row
+
+-- end: section-scroll
+
+
+
+
+
+
+
+
+
+
+-- component show-children:
+fpm.toc-item list children:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+
+-- ftd.column:
+if: { !is_empty(show-children.children) }
+anchor: parent
+top.px: 30
+background.solid: $show-children.menu_bg
+border-width.px: 1
+border-color: $show-children.menu_border
+border-radius.px: 6
+padding.px: 5
+min-width.fixed.px: 150
+;; shadow-offset-x: 3 -- TODO FTD 0.3
+;; shadow-offset-y: 0 -- TODO FTD 0.3
+;; shadow-size: 1 -- TODO FTD 0.3
+;; shadow-blur: 10 -- TODO FTD 0.3
+;; z-index: 4 -- TODO FTD 0.3
+
+-- links:
+obj: $obj
+$loop$: $show-children.children as $obj
+menu_link: $show-children.menu_link
+menu_link_active: $show-children.menu_link_active
+menu_hover_bg: $show-children.menu_hover_bg
+
+-- end: ftd.column
+
+-- end: show-children
+
+
+
+
+
+
+
+
+-- component links:
+fpm.toc-item obj:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+
+-- ftd.column:
+width: fill-container-container
+
+-- ftd.text: $links.obj.title
+if: $obj.url is not null
+link: $links.obj.url
+color: $links.menu_link
+;; color if { links.obj.is-active }: $inherited.colors.cta-primary.base -- TODO FTD 0.3
+background.solid if $MOUSE-IN: $links.menu_hover_bg
+white-space: nowrap
+padding-vertical.px: 4
+padding-horizontal.px: 10
+role: $inherited.types.copy-relaxed
+width: fill-container
+border-radius.px: 4
+
+-- ftd.text: $links.obj.title
+if: { links.obj.url == NULL }
+color: $inherited.colors.background.step-2
+;; color if { links.obj.is-active }: $inherited.colors.cta-primary.base -- TODO FTD 0.3
+background.solid if $MOUSE-IN: $links.menu_hover_bg
+white-space: nowrap
+padding-vertical.px: 4
+padding-horizontal.px: 10
+role: $inherited.types.copy-relaxed
+width: fill-container
+border-radius.px: 4
+
+-- end: ftd.column
+
+-- end: links
+
+
+
+
+
+
+
+
+
+
+-- component show-children-mobile:
+fpm.toc-item list children:
+ftd.color menu_bg:
+ftd.color menu_hover_bg:
+ftd.color menu_link:
+ftd.color menu_link_active:
+ftd.color menu_border:
+
+-- ftd.column:
+if: { !is_empty(show-children-mobile.children) }
+padding.px: 5
+padding-left.px: 15
+
+-- links-mobile:
+obj: $obj
+$loop$: $show-children-mobile.children as $obj
+menu_link: $show-children-mobile.menu_link
+menu_link_active: $show-children-mobile.menu_link_active
+
+-- end: ftd.column
+
+-- end: show-children-mobile
+
+
+
+
+
+
+
+
+
+
+-- component links-mobile:
+fpm.toc-item obj:
+ftd.color menu_link:
+ftd.color menu_link_active:
+
+-- ftd.column:
+width: fill-container
+
+-- ftd.row:
+if: { links-mobile.obj.url != NULL }
+width: fill-container
+
+-- ftd.image:
+if: { links-mobile.obj.font-icon != NULL }
+src: $links-mobile.obj.font-icon
+height.fixed.px: 14
+width: hug-content
+align-self: center
+
+-- ftd.text: $links-mobile.obj.title
+link: $links-mobile.obj.url
+color: $links-mobile.menu_link
+;; color if { links-mobile.obj.is-active }: $inherited.colors.cta-primary.base -- TODO FTD 0.3
+padding-vertical.px: 8
+padding-horizontal.px: 10
+role: $inherited.types.copy-relaxed
+width: fill-container
+
+-- end: ftd.row
+
+-- ftd.row:
+if: { links-mobile.obj.url == NULL }
+width: fill-container
+spacing.px: 8
+
+-- ftd.image:
+if: { links-mobile.obj.font-icon != NULL }
+src: $links-mobileobj.font-icon
+height.fixed.px: 14
+width: hug-content
+align-self: center
+
+-- ftd.text: $links-mobile.obj.title
+color: $inherited.colors.background.step-2
+padding-vertical.px: 8
+padding-horizontal.px: 10
+role: $inherited.types.copy-relaxed
+width: fill-container
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: links-mobile
+
+
+
+
+
+
+
+
+
+-- component login_signup:
+optional string login:
+optional string sign-in: 
+ftd.image-src icon-github: $assets.files.static.icon-github.svg
+
+-- ftd.row:
+width: fill-container
+
+-- login-signup-desktop:
+if: { ftd.device != "mobile" }
+login: $login_signup.login
+sign-in: $login_signup.sign-in
+icon-github: $login_signup.icon-github
+
+-- login-signup-mobile:
+if: { ftd.device == "mobile" }
+login: $login_signup.login
+sign-in: $login_signup.sign-in
+icon-github: $login_signup.icon-github
+
+-- end: ftd.row
+
+-- end: login_signup
+
+
+
+
+
+
+
+
+
+
+-- component login-signup-desktop:
+optional string login:
+optional string sign-in: 
+optional ftd.image-src icon-github:
+
+-- ftd.row:
+spacing.px: 20
+margin-top.px: -10
+width: fill-container
+
+-- ftd.row:
+width: fill-container
+border-left.px: 1
+padding-left.px: 20
+margin-left.px: 20
+border-color: $inherited.colors.border
+
+-- ftd.text: $login-signup-desktop.login
+role: $inherited.types.copy-relaxed
+color: $inherited.colors.cta-primary.base
+padding-vertical.px: 10
+link: https://cdoc.fifthtry.com/initiate-github-login/
+
+-- end: ftd.row
+
+-- github-button:
+sign-in: $login-signup-desktop.sign-in
+icon-github: $login-signup-desktop.icon-github
+
+-- end: ftd.row
+
+-- end: login-signup-desktop
+
+
+
+
+
+
+
+
+
+
+-- component login-signup-mobile:
+optional string login:
+optional string sign-in: 
+optional ftd.image-src icon-github: $assets.files.static.icon-github.svg 
+
+-- ftd.column:
+spacing.px: 32
+width: fill-container
+
+-- ftd.text: $login-signup-mobile.login
+role: $inherited.types.copy-relaxed
+color: $inherited.colors.cta-primary.base
+link: https://cdoc.fifthtry.com/initiate-github-login/
+padding-bottom.px: 32
+
+-- github-button:
+sign-in: $login-signup-mobile.sign-in
+icon-github: $login-signup-mobile.icon-github
+
+-- end: ftd.column
+
+-- end: login-signup-mobile
+
+
+
+
+
+
+
+
+
+
+-- component github-button:
+optional string sign-in: 
+optional string github-cta:
+ftd.image-src icon-github: $assets.files.static.icon-github.svg 
+string link: https://github.com/apps/continuous-documentation
+
+-- ftd.row:
+border-radius.px: 4
+width: hug-content
+cursor: pointer
+link: $github-button.link
+margin-top.px: -4
+align if { ftd.device != "mobile" }: center
+spacing.px: 20
+
+-- ftd.text:
+if: $github-button.sign-in is not null
+text: $github-button.sign-in
+white-space: nowrap
+role: $inherited.types.copy-relaxed
+align-self: center
+text-align: center
+color: $inherited.colors.background.step-1
+
+-- ftd.image:
+src: $github-button.icon-github
+height.fixed.px: 16
+width: hug-content
+
+-- end: ftd.row
+
+-- end: github-button
+
+
+
+
+
+
+
+
+
+
+-- component pricing-cta-text:
+caption title:
+
+-- ftd.row:
+padding-horizontal.px: 8
+padding-vertical.px: 8
+background.solid: $inherited.colors.cta-primary.base
+border-radius.px: 8
+margin-left.px: 20
+margin-top.px: -6
+
+-- ftd.text: $pricing-cta-text.title
+role: $label-bold
+white-space: nowrap
+color: $inherited.colors.cta-primary.text
+
+-- end: ftd.row
+
+-- end: pricing-cta-text
