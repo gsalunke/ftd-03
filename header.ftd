@@ -64,6 +64,9 @@ products: $ps.example-product
 
 
 
+
+
+
 -- component header:
 optional ftd.image_src site_logo:
 optional ftd.image_src brand_site_logo:
