@@ -1,6 +1,5 @@
 -- import: gsalunke.github.io/ftd-03/assets
 
--- import: fpm
 
 
 
@@ -8,7 +7,7 @@
 -- header_toc_item_mobile_view: This is title
 link: /
 icon: $assets.files.cross-dark.svg
-toc: $empty_toc
+children: $sections
 text_color: $inherited.colors.text
 is_active: true
 active_text_color: $inherited.colors.text-strong
@@ -37,7 +36,7 @@ menu_border: $inherited.colors.border
 caption title:
 optional string link:
 ftd.color text_color:
-fpm.toc-item list children:
+toc-item list children:
 optional ftd.image-src icon:
 boolean is_active: 
 ftd.color active_text_color:
@@ -97,7 +96,6 @@ role: $inherited.types.copy-relaxed
 padding-left.px: 10
 color: $inherited.colors.text
 color if {header_toc_item_mobile_view.is_active}: $inherited.colors.cta-primary.base
-cursor: auto
 
 -- end: ftd.row
 
@@ -130,7 +128,7 @@ menu_hover_bg: $header_toc_item_mobile_view.menu_hover_bg
 
 
 -- component show_children_mobile:
-fpm.toc-item list children:
+toc-item list children:
 ftd.color menu_bg:
 ftd.color menu_hover_bg:
 ftd.color menu_link:
@@ -143,10 +141,11 @@ padding.px: 5
 padding-left.px: 15
 
 -- l_mobile:
-obj: $obj
+title: $obj.title
+url: $obj.url
+font-icon: $obj.font-icon
+is-active: $obj.is-active
 $loop$: $show_children_mobile.children as $obj
-menu_link: $show_children_mobile.menu_link
-menu_link_active: $show_children_mobile.menu_link_active
 
 -- end: ftd.column
 
@@ -159,48 +158,49 @@ menu_link_active: $show_children_mobile.menu_link_active
 
 
 -- component l_mobile:
-fpm.toc-item obj:
-ftd.color menu_link:
-ftd.color menu_link_active:
+caption title:
+string url:
+ftd.image-src font-icon:
+boolean is-active: false
 
 -- ftd.column:
-width: fill
+width: fill-container
 
 -- ftd.row:
-if: { l_mobile.obj.url != NULL }
+if: { l_mobile.url != NULL }
 width: fill-container
 
 -- ftd.image:
-;; if: { l_mobile.obj.font-icon != NULL } -- TODO FTD 0.3
-src: $l_mobile.obj.font-icon
+;; if: { l_mobile.font-icon != NULL } -- TODO FTD 0.3
+src: $l_mobile.font-icon
 height.fixed.px: 14
 width: hug-content
 align-self: center
 
--- ftd.text: $l_mobile.obj.title
-link: $l_mobile.obj.url
-color: $l_mobile.menu_link
-color if { l_mobile.obj.is-active }: $inherited.colors.cta-primary.base
+-- ftd.text: $l_mobile.title
+link: $l_mobile.url
+color: $inherited.colors.text
+color if { l_mobile.is-active }: $inherited.colors.cta-primary.base
 padding-vertical.px: 8
 padding-horizontal.px: 10
-role: $inherited.type.copy-relaxed
+role: $inherited.types.copy-relaxed
 width: fill-container
 
 -- end: ftd.row
 
 -- ftd.row:
-if: { l_mobile.obj.url == NULL }
+if: { l_mobile.url == NULL }
 width: fill-container
 spacing.px: 8
 
 -- ftd.image:
-;; if: { l_mobile.obj.font-icon != NULL } -- TODO FTD 0.3
-src: $l_mobile.obj.font-icon
+;; if: { l_mobile.font-icon != NULL } -- TODO FTD 0.3
+src: $l_mobile.font-icon
 height.fixed.px: 14
 width: hug-content
 align-self: center
 
--- ftd.text: $l_mobile.obj.title
+-- ftd.text: $l_mobile.title
 color: $inherited.colors.background.step-2
 padding-vertical.px: 8
 padding-horizontal.px: 10
@@ -228,37 +228,17 @@ width: fill-container
 
 
 
--- fpm.toc-item list empty_toc:
+-- record toc-item:
+string title:
+string url:
+ftd.image-src font-icon:
+boolean is-active: false
 
+-- toc-item list sections:
 
+-- toc-item: 
+title: Home
+url: /
+font-icon: $assets.files.cross-dark.svg
 
--- fpm.toc-item list extra:
-$processor$: toc
-
-- APIs & SKDs: 
-  - API:
-  - Stripe.js: /index/
-  - CLI: /cli/
-  - ios: /ios/
-  - Android: /android/
-  - React Native: /react-native/
-- Support: /support/
-
-
-
--- fpm.toc-item list footer_list:
-$processor$: toc
-
-- legal: /legal/
-- support: /support/
-- feedback: /feedback/
-
-
-
--- fpm.toc-item list languages:
-$processor$: toc
-
-- English: /
-- Hindi: /hi
-- Spanish: /es
-- German: /de
+-- end: sections
