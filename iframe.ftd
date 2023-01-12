@@ -1,0 +1,55 @@
+-- import: fpm
+
+
+-- ftd.column:
+;;id: code-wrap
+height: hug-content
+width: fill-container
+spacing.px: 20
+padding-horizontal.px: 24
+padding-vertical.px: 24
+background.solid: $inherited.colors.background.base
+
+
+-- iframe:
+src: https://github.com/FifthTry/doc-site/blob/main/index.ftd
+
+
+
+-- youtube:
+v: ZoCGwt_nLbk
+
+
+-- end: ftd.column
+
+
+
+
+-- component iframe:
+string src:
+
+-- ftd.iframe:
+src: $iframe,src
+height: 400
+width: fill
+margin-bottom: 34
+
+-- end: iframe
+
+
+
+
+
+
+
+
+-- component youtube:
+caption v:
+
+-- ftd.iframe:
+youtube: $youtube.v
+height: 400
+width: fill
+margin-bottom: 34
+
+-- end: youtube
