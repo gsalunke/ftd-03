@@ -11,30 +11,32 @@ padding-vertical.px: 24
 background.solid: $inherited.colors.background.base
 
 
--- iframe:
+-- iframes:
 src: https://github.com/FifthTry/doc-site/blob/main/index.ftd
 
+-- end: iframes
 
 
 -- youtube:
 v: ZoCGwt_nLbk
 
+-- end: youtube
 
 -- end: ftd.column
 
 
 
 
--- component iframe:
+-- component iframes:
 string src:
 
 -- ftd.iframe:
-src: $iframe,src
-height: 400
-width: fill
-margin-bottom: 34
+src: $iframes.src
+height.fixed.px: 400
+width: fill-container
+margin-bottom.px: 34
 
--- end: iframe
+-- end: iframes
 
 
 
@@ -48,8 +50,8 @@ caption v:
 
 -- ftd.iframe:
 youtube: $youtube.v
-height: 400
-width: fill
-margin-bottom: 34
+height.fixed.px: 400
+width: fill-container
+margin-bottom.px: 34
 
 -- end: youtube
